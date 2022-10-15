@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JDiagram">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JDiagram.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

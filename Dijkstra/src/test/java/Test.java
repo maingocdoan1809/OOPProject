@@ -10,6 +10,7 @@ import com.mindfusion.diagramming.*;
 public class Test
         extends JFrame
 {
+    // example for Jchart
     public Test()
     {
         diagram = new Diagram();
