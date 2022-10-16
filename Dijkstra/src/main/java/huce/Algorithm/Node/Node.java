@@ -54,7 +54,9 @@ public class Node implements Comparable<Node> {
     public int getEstimate() {
         return this.estimate;
     }
-
+    public String getName() {
+        return this.name;
+    }
     public HashMap<Node, Integer> getAdjacentNodes() {
         return this.adjacentNodes;
     }
