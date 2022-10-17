@@ -5,9 +5,10 @@ import huce.Algorithm.Node.Node;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
-
+import huce.Exception.PathNotFoundException;
 public class Dijkstra {
-    private static void helper(Node src, Node dest, Set<Node> visited, PriorityQueue<Node> queue) {
+    private static void helper(Node src, Node dest, Set<Node> visited,
+                               PriorityQueue<Node> queue) {
         if (src == dest) {
             return;
         }
@@ -33,11 +34,14 @@ public class Dijkstra {
         helper(top, dest, visited, queue);
     }
 
-    public static void travel(Node src, Node dest) {
+    public static void travel(Node src, Node dest) throws PathNotFoundException {
         if (src == dest) {
             return;
         }
         helper(src, dest, new HashSet<>(), new PriorityQueue<Node>());
+        if ( dest.pre == null ) {
+            throw new PathNotFoundException("Cannot find any path from %s to %s".formatted(src.getName(), dest.getName()));
+        }
     }
 
     public static String getPath(Node dest, String path) {
@@ -49,7 +53,6 @@ public class Dijkstra {
 
     public static void setAsRoot(Node node) {
         node.updateEstimate(0);
-
     }
 
     public static void resetRootState(Node root) {

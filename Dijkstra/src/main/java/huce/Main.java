@@ -3,61 +3,15 @@ package huce;
 import com.mindfusion.diagramming.*;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
+import huce.Exception.PathNotFoundException;
 import huce.Graphviz.Parser;
+import huce.View.ViewGraph;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
 import java.util.Set;
 import java.util.TreeMap;
-class View extends JFrame {
-    static private TreeMap<String, DiagramNode> toDiagramNodes(Set<String> nodes,
-                                                               Diagram diagram) {
-        TreeMap<String, DiagramNode> diagramNodes = new TreeMap<>();
-        Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 15);
-        for (var nodeName : nodes) {
-            ShapeNode shapeNode = diagram.getFactory().createShapeNode(bounds);
-            shapeNode.setText(nodeName);
-            diagramNodes.put(nodeName, shapeNode);
-        }
-        return diagramNodes;
-    }
-    static private void connect(Diagram diagram, ShapeNode from, ShapeNode to,
-                                int distance) {
-        DiagramLink link =
-                diagram.getFactory().createDiagramLink(from, to);
-        link.addLabel(distance + "");
-        link.setFont(new Font("monospace", Font.BOLD,10));
-    }
-    public View(TreeMap<String, Node> nodes) {
-
-        Diagram diagram = new Diagram();
-        Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 15);
-        var diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
-        for ( var diaNodeName : diagramNodes.keySet() ) {
-            ShapeNode from = (ShapeNode) diagramNodes.get(diaNodeName);
-            var adjacentNodes = nodes.get(diaNodeName).getAdjacentNodes();
-            for ( var adjacentNode : adjacentNodes.keySet() ) {
-                ShapeNode to = (ShapeNode) diagramNodes.get(adjacentNode.getName());
-                int distance = adjacentNodes.get(adjacentNode);
-                connect(diagram, from, to, distance);
-            }
-        }
-        DiagramView diagramView = new DiagramView(diagram);
-        JScrollPane scrollPane = new JScrollPane(diagramView);
-        CircularLayout layout = new CircularLayout();
-        layout.arrange(diagram);
-        diagram.setAllowMultipleResize(true);
-        diagram.setAutoAlignNodes(true);
-        diagram.setAllowLinksRepeat(false);
-        diagramView.setAllowInplaceEdit(false);
-        this.getContentPane().add(scrollPane);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.pack();
-        this.setVisible(true);
-    }
-}
 public class Main {
     public static final String graphFile =
             """
@@ -84,20 +38,27 @@ public class Main {
                 "F" -> "G" [label="5"]
                 "G" -> "F" [label="5"]
                 "G" -> "B" [label="2"]
+                "K" -> "K" [label="0"]
+
             }
             """;
     public static void main(String[] args) {
         var edges = Parser.toEdges(graphFile);
         var nodes = Parser.toNodes( (TreeMap<String, Integer>) edges);
-        Node src = nodes.get("E");
+        Node src = nodes.get("A");
+//        src.blockNode(nodes.get("C"));
         Dijkstra.setAsRoot(src);
-        Node dest = nodes.get("G");
-        Dijkstra.travel(src, dest);
-        System.out.println( Dijkstra.getPath(dest.pre, "" + dest) );
+        Node dest = nodes.get("B");
+        try {
+            Dijkstra.travel(src, dest);
+            System.out.println( Dijkstra.getPath(dest.pre, "" + dest) );
+        } catch (PathNotFoundException e) {
+            e.printStackTrace();
+        }
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                View view = new View(nodes);
+                ViewGraph view = new ViewGraph(nodes, src, dest);
             }
         });
     }

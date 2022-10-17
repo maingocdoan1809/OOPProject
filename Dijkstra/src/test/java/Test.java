@@ -1,49 +1,54 @@
-import com.mindfusion.diagramming.Diagram;
-import com.mindfusion.diagramming.DiagramView;
-import com.mindfusion.diagramming.LayeredLayout;
-import com.mindfusion.diagramming.ShapeNode;
+import huce.Algorithm.Dijkstra;
+import huce.Algorithm.Node.Node;
+import huce.Exception.PathNotFoundException;
+import huce.Graphviz.Parser;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
-
-public class Test
-        extends JFrame
-{
-    // example for Jchart
-    public Test()
-    {
-        diagram = new Diagram();
-        diagramView = new DiagramView();
-        diagramView.setDiagram(diagram);
-        char star = 'A';
-            Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 8);
-        for (int i = 0; i < 10; i++) {
-
-            ShapeNode shapeNode = diagram.getFactory().createShapeNode(bounds);
-            shapeNode.setText(star + "");
-            star++;
+public class Test {
+    public static final String graphFile =
+            """
+            digraph mygraph {
+                "A" -> "C" [label="3"]
+                "A" -> "F" [label="2"]
+                "C" -> "A" [label="3"]
+                "C" -> "F" [label="2"]
+                "C" -> "E" [label="1"]
+                "C" -> "D" [label="4"]
+                "B" -> "D" [label="1"]
+                "B" -> "E" [label="2"]
+                "B" -> "F" [label="6"]
+                "B" -> "G" [label="2"]
+                "D" -> "C" [label="4"]
+                "D" -> "B" [label="1"]
+                "E" -> "C" [label="1"]
+                "E" -> "F" [label="3"]
+                "E" -> "B" [label="2"]
+                "F" -> "A" [label="2"]
+                "F" -> "C" [label="2"]
+                "F" -> "E" [label="3"]
+                "F" -> "B" [label="6"]
+                "F" -> "G" [label="5"]
+                "G" -> "F" [label="5"]
+                "G" -> "B" [label="2"]
+                "Z" -> "Y" [label="10"]
+                "K" -> "K" [label="0"]
+            }
+            """;
+    public static void main(String[] args) {
+        var edges = Parser.toEdges(graphFile);
+        var nodes = Parser.toNodes( (TreeMap<String, Integer>) edges);
+        Node src = nodes.get("A");
+        Dijkstra.setAsRoot(src);
+        src.blockNode( nodes.get("F"));
+        Node dest = nodes.get("K");
+        try {
+            Dijkstra.travel(src, dest);
+            System.out.println( Dijkstra.getPath(dest.pre, "" + dest) );
+        } catch (PathNotFoundException e) {
+            e.printStackTrace();
         }
-
-        // layout
-        LayeredLayout layout = new LayeredLayout();
-        layout.setLayerDistance(50);
-        layout.arrange(diagram);
-        JScrollPane scrollPane = new JScrollPane(diagramView);
-        getContentPane().add(scrollPane);
-        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(size);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-
-    public static void main(String[] args)
-    {
-        Test window = new Test();
-        window.setVisible(true);
-    }
-
-
-    private DiagramView diagramView;
-    private Diagram diagram;
 }

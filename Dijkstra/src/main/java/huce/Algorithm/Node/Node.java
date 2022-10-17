@@ -2,6 +2,7 @@ package huce.Algorithm.Node;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Node implements Comparable<Node> {
     private String name;
@@ -23,13 +24,15 @@ public class Node implements Comparable<Node> {
         this.estimate = Integer.MAX_VALUE;
         this.pre = null;
     }
-
     public void resetEstimate() {
         this.estimate = Integer.MAX_VALUE;
     }
 
     public void addAdjacency(Node node, int distance, boolean undirected) {
         // distance from (this) to node.
+        if (this == node) {
+            return;
+        }
         this.adjacentNodes.put(node, distance);
         if (undirected) {
             node.addAdjacency(this, distance, !undirected);
@@ -43,10 +46,22 @@ public class Node implements Comparable<Node> {
         }
         return false;
     }
-    public void block(Node other) {
+    private void blockHelper(Node other, Set<Node> visited) {
+        if (this == other) {
+            return;
+        }
         if ( this.adjacentNodes.containsKey(other) ) {
             this.blocked.add(other);
+            visited.add(this);
         }
+        for (var adjacentNode : this.adjacentNodes.keySet()) {
+            if ( !visited.contains(adjacentNode) ) {
+                adjacentNode.blockHelper(other, visited);
+            }
+        }
+    }
+    public void blockNode(Node other) {
+        blockHelper(other, new TreeSet<>());
     }
     public Set<Node> getBlocked() {
         return this.blocked;
