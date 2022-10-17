@@ -1,20 +1,14 @@
 package huce;
 
 import com.mindfusion.diagramming.*;
-import com.mindfusion.drawing.Align;
-import com.mindfusion.drawing.Brushes;
-import com.mindfusion.drawing.FontStyle;
-import com.mindfusion.drawing.Pens;
-import com.sun.source.tree.Tree;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Graphviz.Parser;
-import org.checkerframework.checker.units.qual.C;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
-import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeMap;
 class View extends JFrame {
@@ -29,24 +23,25 @@ class View extends JFrame {
         }
         return diagramNodes;
     }
+    static private void connect(Diagram diagram, ShapeNode from, ShapeNode to,
+                                int distance) {
+        DiagramLink link =
+                diagram.getFactory().createDiagramLink(from, to);
+        link.addLabel(distance + "");
+        link.setFont(new Font("monospace", Font.BOLD,10));
+    }
     public View(TreeMap<String, Node> nodes) {
 
         Diagram diagram = new Diagram();
         Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 15);
         var diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
-
         for ( var diaNodeName : diagramNodes.keySet() ) {
             ShapeNode from = (ShapeNode) diagramNodes.get(diaNodeName);
             var adjacentNodes = nodes.get(diaNodeName).getAdjacentNodes();
             for ( var adjacentNode : adjacentNodes.keySet() ) {
                 ShapeNode to = (ShapeNode) diagramNodes.get(adjacentNode.getName());
-                DiagramLink link =
-                        diagram.getFactory().createDiagramLink(from, to);
-                String distance = adjacentNodes.get(adjacentNode) + "";
-                link.addLabel(distance);
-                link.setFont(new Font("monospace", Font.BOLD,10));
-                link.setToolTip(String.format("the cost from %s to %s is %s",
-                        diaNodeName, adjacentNode.getName(), distance));
+                int distance = adjacentNodes.get(adjacentNode);
+                connect(diagram, from, to, distance);
             }
         }
         DiagramView diagramView = new DiagramView(diagram);

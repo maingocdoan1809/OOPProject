@@ -1,14 +1,11 @@
 package huce.Graphviz;
 
-import java.util.TreeMap;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import huce.Algorithm.Node.Node;
+
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import huce.Algorithm.Node.Node;
 public class Parser {
     private static final String getLabelPattern = "(label\\s*=\\s*\"\\s*[0-9]*\\s*\")";
     private static final String getEdgesPattern = "(\"(\\w+\\s*\\w*)\")(\\s*->\\s*)(\"(\\w+\\s*\\w*)\")";

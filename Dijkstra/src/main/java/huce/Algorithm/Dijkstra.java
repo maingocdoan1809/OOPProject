@@ -1,7 +1,8 @@
 package huce.Algorithm;
 
+import huce.Algorithm.Node.Node;
+
 import java.util.HashSet;
-import huce.Algorithm.Node.*;
 import java.util.PriorityQueue;
 import java.util.Set;
 

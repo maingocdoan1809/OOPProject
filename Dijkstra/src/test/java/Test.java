@@ -1,11 +1,11 @@
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import com.mindfusion.diagramming.Diagram;
+import com.mindfusion.diagramming.DiagramView;
+import com.mindfusion.diagramming.LayeredLayout;
+import com.mindfusion.diagramming.ShapeNode;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
-
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-
-import com.mindfusion.diagramming.*;
 
 
 public class Test
