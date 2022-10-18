@@ -10,7 +10,7 @@ public class Parser {
     private static final String getLabelPattern = "(label\\s*=\\s*\"\\s*[0-9]*\\s*\")";
     private static final String getEdgesPattern = "(\"(\\w+\\s*\\w*)\")(\\s*->\\s*)(\"(\\w+\\s*\\w*)\")";
     private static final String getNodePattern = "(\\w+\\s*\\w*)";
-    private static final String getcostPattern = "([0-9]+)";
+    private static final String getCostPattern = "([0-9]+)";
 
     public static TreeMap<String, Node> toNodes(TreeMap<String, Integer> edges) {
         TreeMap<String, Node> nodes = new TreeMap<>();
@@ -58,7 +58,7 @@ public class Parser {
         Pattern pattern2 = Pattern.compile(getLabelPattern);
         Matcher matcher2 = pattern2.matcher(dotFormat);
         // get cost
-        Pattern pattern3 = Pattern.compile(getcostPattern);
+        Pattern pattern3 = Pattern.compile(getCostPattern);
         while (matcher.find() && matcher2.find()) {
             String label = matcher2.group();
             Matcher matcher3 = pattern3.matcher(label);

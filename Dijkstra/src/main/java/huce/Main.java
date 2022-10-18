@@ -1,6 +1,7 @@
 package huce;
 
 import com.mindfusion.diagramming.*;
+import com.mindfusion.drawing.Brushes;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
@@ -58,7 +59,9 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                ViewGraph view = new ViewGraph(nodes, src, dest);
+                ViewGraph view = new ViewGraph(nodes);
+                view.drawGraph();
+                view.setVisible(true);
             }
         });
     }
