@@ -1,11 +1,7 @@
 package huce.View;
 
-import com.mindfusion.diagramming.*;
-import com.mindfusion.diagramming.GridLayout;
 import com.mindfusion.diagramming.Shape;
-import com.mindfusion.diagramming.SpringLayout;
-import com.mindfusion.diagramming.jlayout.Direction;
-import com.mindfusion.drawing.Align;
+import com.mindfusion.diagramming.*;
 import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
 import com.mindfusion.drawing.Pens;
@@ -17,7 +13,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class ViewGraph extends JFrame {
+class ViewGraph extends JFrame {
     TreeMap<String, DiagramNode> diagramNodes;
     TreeMap<String, Node> nodes;
     Diagram diagram;
@@ -72,6 +68,7 @@ public class ViewGraph extends JFrame {
                 link.setPen(Pens.Red);
                 link.setHeadPen(Pens.Red);
                 link.setLayerIndex(2);
+                link.setTextBrush(Brushes.YellowGreen);
                 break;
             }
         }

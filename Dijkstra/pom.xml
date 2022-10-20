@@ -16,4 +16,11 @@
         <project.build.sourceEncoding>UTF-8
         </project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>11.2.1.jre18</version>
+        </dependency>
+    </dependencies>
 </project>

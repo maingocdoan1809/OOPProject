@@ -1,11 +1,11 @@
 package huce.Algorithm;
 
 import huce.Algorithm.Node.Node;
+import huce.Exception.PathNotFoundException;
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
-import huce.Exception.PathNotFoundException;
 public class Dijkstra {
     private static void helper(Node src, Node dest, Set<Node> visited,
                                PriorityQueue<Node> queue) {

@@ -82,7 +82,6 @@ public class Parser {
         Pattern costPattern = Pattern.compile(getCostPattern);
         while (matcher.find()) {
             String edgeAndDistance = matcher.group();
-            System.out.println(edgeAndDistance);
             Matcher edgeMatcher = edgePattern.matcher(edgeAndDistance);
             Matcher labelMatcher = labelPattern.matcher(edgeAndDistance);
             Matcher costMatcher = costPattern.matcher(edgeAndDistance);
