@@ -1,7 +1,6 @@
 package huce.Model;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -10,10 +9,11 @@ public class AppDB implements AutoCloseable {
     public AppDB(String connectionString) {
         try {
             this.connection = DriverManager.getConnection(connectionString);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        System.out.println("Ok dey");
     }
     public String getUseCase(int id) {
         return "";

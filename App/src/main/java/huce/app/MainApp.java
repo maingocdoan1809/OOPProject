@@ -26,38 +26,52 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel6 = new javax.swing.JPanel();
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
         javax.swing.JPanel JPanelMain = new javax.swing.JPanel();
         javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
         javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
         javax.swing.JLabel jLabelRoot = new javax.swing.JLabel();
-        JListRootNode = new javax.swing.JComboBox<>();
+        jListRootNode = new javax.swing.JComboBox<>();
         javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
         javax.swing.JLabel jLabelBlock = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListBlockNode = new javax.swing.JList<>();
         javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
         javax.swing.JLabel jLabelTo = new javax.swing.JLabel();
-        JListToNode = new javax.swing.JComboBox<>();
+        jListToNode = new javax.swing.JComboBox<>();
         javax.swing.JScrollPane jScrollPane3 = new javax.swing.JScrollPane();
         jTableHistory = new javax.swing.JTable();
-        JBtnGetUseCase = new javax.swing.JButton();
+        jBtnGetUseCase = new javax.swing.JButton();
         javax.swing.JPanel jPanelTextEditer = new javax.swing.JPanel();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
         javax.swing.JScrollPane jScrollPane4 = new javax.swing.JScrollPane();
         jTextEditer = new javax.swing.JTextPane();
         jButtonOk = new javax.swing.JButton();
-        JBtnGenerate = new javax.swing.JButton();
+        jBtnGenerate = new javax.swing.JButton();
+        javax.swing.JPanel jPanel7 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
-        JMenu = new javax.swing.JMenu();
-        JMenuViewNodes = new javax.swing.JMenuItem();
-        JMenuImport = new javax.swing.JMenuItem();
+        jMenu = new javax.swing.JMenu();
+        jMenuViewNodes = new javax.swing.JMenuItem();
+        jMenuImport = new javax.swing.JMenuItem();
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JPanelMain.setBackground(new java.awt.Color(178, 178, 178));
+        JPanelMain.setBackground(new java.awt.Color(76, 103, 147));
 
-        jPanel2.setBackground(new java.awt.Color(234, 234, 234));
+        jPanel2.setBackground(new java.awt.Color(76, 103, 147));
 
         jLabelRoot.setText("From/Root");
 
@@ -69,12 +83,12 @@ public class MainApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelRoot, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(JListRootNode, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jListRootNode, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelRoot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(JListRootNode, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(jListRootNode, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
         jLabelBlock.setText("Block");
@@ -107,12 +121,12 @@ public class MainApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabelTo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(JListToNode, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jListToNode, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(JListToNode, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(jListToNode, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
 
         jTableHistory.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,7 +154,7 @@ public class MainApp extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableHistory);
 
-        JBtnGetUseCase.setText("Get graph");
+        jBtnGetUseCase.setText("Get graph");
 
         jPanelTextEditer.setBackground(new java.awt.Color(234, 234, 234));
 
@@ -159,56 +173,80 @@ public class MainApp extends javax.swing.JFrame {
         jPanelTextEditer.setLayout(jPanelTextEditerLayout);
         jPanelTextEditerLayout.setHorizontalGroup(
             jPanelTextEditerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTextEditerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(182, 182, 182))
             .addGroup(jPanelTextEditerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTextEditerLayout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonOk, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanelTextEditerLayout.setVerticalGroup(
             jPanelTextEditerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTextEditerLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelTextEditerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonOk, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                    .addGroup(jPanelTextEditerLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4)
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanelTextEditerLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jButtonOk, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        JBtnGenerate.setText("Generate Path");
+        jBtnGenerate.setText("Generate Path");
+
+        jPanel7.setBackground(new java.awt.Color(55, 41, 72));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("@nhom1");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(113, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(JBtnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBtnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JBtnGetUseCase, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(55, 55, 55)
-                            .addComponent(jPanelTextEditer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(129, Short.MAX_VALUE))
+                        .addComponent(jBtnGetUseCase, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addComponent(jPanelTextEditer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(114, Short.MAX_VALUE))
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
+                .addContainerGap(155, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,11 +257,12 @@ public class MainApp extends javax.swing.JFrame {
                     .addComponent(jPanelTextEditer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(63, 63, 63)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JBtnGetUseCase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JBtnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBtnGetUseCase, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout JPanelMainLayout = new javax.swing.GroupLayout(JPanelMain);
@@ -255,29 +294,29 @@ public class MainApp extends javax.swing.JFrame {
         jMenuBar.setForeground(new java.awt.Color(0, 0, 0));
         jMenuBar.setMargin(new java.awt.Insets(5, 0, 5, 0));
 
-        JMenu.setText("Menu");
-        JMenu.setToolTipText("");
-        JMenu.setMargin(new java.awt.Insets(3, 16, 3, 16));
+        jMenu.setText("Menu");
+        jMenu.setToolTipText("");
+        jMenu.setMargin(new java.awt.Insets(3, 16, 3, 16));
 
-        JMenuViewNodes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        JMenuViewNodes.setText("View Nodes");
-        JMenuViewNodes.addActionListener(new java.awt.event.ActionListener() {
+        jMenuViewNodes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuViewNodes.setText("View Nodes");
+        jMenuViewNodes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuViewNodesActionPerformed(evt);
+                jMenuViewNodesActionPerformed(evt);
             }
         });
-        JMenu.add(JMenuViewNodes);
+        jMenu.add(jMenuViewNodes);
 
-        JMenuImport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        JMenuImport.setText("Import graph");
-        JMenuImport.addActionListener(new java.awt.event.ActionListener() {
+        jMenuImport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuImport.setText("Import graph");
+        jMenuImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMenuImportActionPerformed(evt);
+                jMenuImportActionPerformed(evt);
             }
         });
-        JMenu.add(JMenuImport);
+        jMenu.add(jMenuImport);
 
-        jMenuBar.add(JMenu);
+        jMenuBar.add(jMenu);
 
         setJMenuBar(jMenuBar);
 
@@ -285,13 +324,13 @@ public class MainApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JMenuViewNodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuViewNodesActionPerformed
+    private void jMenuViewNodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuViewNodesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JMenuViewNodesActionPerformed
+    }//GEN-LAST:event_jMenuViewNodesActionPerformed
 
-    private void JMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuImportActionPerformed
+    private void jMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JMenuImportActionPerformed
+    }//GEN-LAST:event_jMenuImportActionPerformed
 
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
         // TODO add your handling code here:
@@ -333,16 +372,18 @@ public class MainApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBtnGenerate;
-    private javax.swing.JButton JBtnGetUseCase;
-    private javax.swing.JComboBox<String> JListRootNode;
-    private javax.swing.JComboBox<String> JListToNode;
-    private javax.swing.JMenu JMenu;
-    private javax.swing.JMenuItem JMenuImport;
-    private javax.swing.JMenuItem JMenuViewNodes;
+    private javax.swing.JButton jBtnGenerate;
+    private javax.swing.JButton jBtnGetUseCase;
     private javax.swing.JButton jButtonOk;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jListBlockNode;
+    private javax.swing.JComboBox<String> jListRootNode;
+    private javax.swing.JComboBox<String> jListToNode;
+    private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JMenuItem jMenuImport;
+    private javax.swing.JMenuItem jMenuViewNodes;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableHistory;
     private javax.swing.JTextPane jTextEditer;
