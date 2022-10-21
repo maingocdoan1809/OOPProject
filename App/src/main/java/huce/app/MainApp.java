@@ -26,7 +26,6 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel6 = new javax.swing.JPanel();
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
         javax.swing.JPanel JPanelMain = new javax.swing.JPanel();
         javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
@@ -35,7 +34,7 @@ public class MainApp extends javax.swing.JFrame {
         jListRootNode = new javax.swing.JComboBox<>();
         javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
         javax.swing.JLabel jLabelBlock = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
         jListBlockNode = new javax.swing.JList<>();
         javax.swing.JPanel jPanel5 = new javax.swing.JPanel();
         javax.swing.JLabel jLabelTo = new javax.swing.JLabel();
@@ -50,22 +49,11 @@ public class MainApp extends javax.swing.JFrame {
         jButtonOk = new javax.swing.JButton();
         jBtnGenerate = new javax.swing.JButton();
         javax.swing.JPanel jPanel7 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         jMenuViewNodes = new javax.swing.JMenuItem();
         jMenuImport = new javax.swing.JMenuItem();
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,11 +151,6 @@ public class MainApp extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextEditer);
 
         jButtonOk.setText("Ok");
-        jButtonOk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOkActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelTextEditerLayout = new javax.swing.GroupLayout(jPanelTextEditer);
         jPanelTextEditer.setLayout(jPanelTextEditerLayout);
@@ -300,20 +283,10 @@ public class MainApp extends javax.swing.JFrame {
 
         jMenuViewNodes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuViewNodes.setText("View Nodes");
-        jMenuViewNodes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuViewNodesActionPerformed(evt);
-            }
-        });
         jMenu.add(jMenuViewNodes);
 
         jMenuImport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuImport.setText("Import graph");
-        jMenuImport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuImportActionPerformed(evt);
-            }
-        });
         jMenu.add(jMenuImport);
 
         jMenuBar.add(jMenu);
@@ -323,18 +296,6 @@ public class MainApp extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuViewNodesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuViewNodesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuViewNodesActionPerformed
-
-    private void jMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuImportActionPerformed
-
-    private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,19 +333,16 @@ public class MainApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnGenerate;
-    private javax.swing.JButton jBtnGetUseCase;
-    private javax.swing.JButton jButtonOk;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JButton jBtnGenerate;
+    public javax.swing.JButton jBtnGetUseCase;
+    public javax.swing.JButton jButtonOk;
     private javax.swing.JList<String> jListBlockNode;
-    private javax.swing.JComboBox<String> jListRootNode;
-    private javax.swing.JComboBox<String> jListToNode;
+    public javax.swing.JComboBox<String> jListRootNode;
+    public javax.swing.JComboBox<String> jListToNode;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenuItem jMenuImport;
     private javax.swing.JMenuItem jMenuViewNodes;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableHistory;
     private javax.swing.JTextPane jTextEditer;
     // End of variables declaration//GEN-END:variables

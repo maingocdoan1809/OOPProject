@@ -13,7 +13,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Set;
 import java.util.TreeMap;
 
-class ViewGraph extends JFrame {
+public class ViewGraph extends JFrame {
     TreeMap<String, DiagramNode> diagramNodes;
     TreeMap<String, Node> nodes;
     Diagram diagram;
@@ -74,9 +74,6 @@ class ViewGraph extends JFrame {
         }
         drawPath(dest.pre);
     }
-    public void view() {
-
-    }
     public ViewGraph(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
         this.nodes = nodes;
@@ -88,7 +85,7 @@ class ViewGraph extends JFrame {
         CircularLayout layout = new CircularLayout();
         diagramSetUp(diagram, layout);
         this.getContentPane().add(scrollPane);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
     }
 }

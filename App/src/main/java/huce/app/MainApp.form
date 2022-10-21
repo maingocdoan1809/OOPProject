@@ -2,21 +2,6 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JPanel" name="jPanel6">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -51,9 +36,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="View Nodes"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuViewNodesActionPerformed"/>
-              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuImport">
               <Properties>
@@ -62,9 +44,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Import graph"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuImportActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -252,6 +231,7 @@
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
@@ -292,6 +272,8 @@
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
 
@@ -305,6 +287,7 @@
                           </Properties>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -353,6 +336,7 @@
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
@@ -405,6 +389,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Get graph"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanelTextEditer">
                   <Properties>
@@ -481,9 +468,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Ok"/>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonOkActionPerformed"/>
-                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -491,6 +478,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Generate Path"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel7">
                   <Properties>
@@ -529,6 +519,10 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="@nhom1"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
