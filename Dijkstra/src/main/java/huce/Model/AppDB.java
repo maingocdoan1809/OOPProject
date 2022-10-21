@@ -58,6 +58,18 @@ public class AppDB implements AutoCloseable {
     public void toNodes(String graph) throws GraphvizFileFormatException{
             this.nodes = Parser.toNodes(graph);
     }
+    public String[][] getUseCases() {
+        return new String[][]{
+                new String[] {"1", "Graph1",
+            """
+            graph Graph1 {
+                "Thanh Hoa" -- "Hue" [label="200"]
+                "Hue" -- "TPHCM" [label="500"]
+                "Thanh Hoa" -- "TPHCM" [label="700"]
+            }
+            """}
+        };
+    }
     private String get(int id) {
         return "";
     }

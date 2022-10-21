@@ -5,6 +5,7 @@ import huce.Model.AppDB;
 import huce.View.MainApp;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class OnClickOkController extends Controller{
@@ -15,7 +16,11 @@ public class OnClickOkController extends Controller{
     public void controll(MainApp myapp) {
         myapp.jButtonOk.addActionListener(
                 (ActionEvent event) -> {
-                    String graph = myapp.jTextEditer.getText();
+                    DefaultTableModel tableModel =
+                            (DefaultTableModel) myapp.jTestcaseTable.getModel();
+
+                    int rowSelected = myapp.jTestcaseTable.getSelectedRow();
+                    String graph = (String) tableModel.getValueAt(rowSelected, 2);
                     if (graph.equals("")) {
                         JOptionPane.showMessageDialog(myapp, "You need to type your graph first");
                     } else {

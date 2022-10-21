@@ -5,6 +5,7 @@ import huce.Graphviz.Parser;
 import huce.Model.AppDB;
 import huce.View.MainApp;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 
 public class OnloadController extends Controller {
@@ -24,6 +25,12 @@ public class OnloadController extends Controller {
                         var nodes =
                                 OnloadController.super.database.getNodes();
                         myapp.prepareNodes(nodes);
+                        DefaultTableModel tableModel =
+                                (DefaultTableModel) myapp.jTestcaseTable.getModel();
+                        var data = OnloadController.super.database.getUseCases();
+                        for ( var d : data ) {
+                            tableModel.addRow(d);
+                        }
                     } catch (Exception err) {
                         err.printStackTrace();
                         JOptionPane.showMessageDialog(myapp, err.getMessage());
