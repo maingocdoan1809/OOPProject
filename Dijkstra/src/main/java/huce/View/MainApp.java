@@ -5,6 +5,7 @@ package huce.View;/*
 
 import huce.Algorithm.Node.Node;
 import huce.Controller.GeneratePathController;
+import huce.Controller.OnClickOkController;
 import huce.Controller.OnloadController;
 import huce.Model.AppDB;
 
@@ -23,8 +24,8 @@ public class MainApp extends javax.swing.JFrame {
         initComponents();
         new OnloadController(AppDB.getModel("")).controll(this);
         new GeneratePathController(AppDB.getModel("")).controll(this);
+        new OnClickOkController(AppDB.getModel("")).controll(this);
     }
-
     private void initComponents() {
 
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
@@ -297,7 +298,14 @@ public class MainApp extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }
-
+    public void prepareNodes(TreeMap<String, Node> nodes) {
+        this.jListRootNode.removeAllItems();
+        this.jListToNode.removeAllItems();
+        for (String nodeName : nodes.keySet()) {
+            this.jListRootNode.addItem(nodeName);
+            this.jListToNode.addItem(nodeName);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -321,6 +329,6 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuImport;
     private javax.swing.JMenuItem jMenuViewNodes;
     private javax.swing.JTable jTableHistory;
-    private javax.swing.JTextPane jTextEditer;
+    public javax.swing.JTextPane jTextEditer;
     // End of variables declaration
 }

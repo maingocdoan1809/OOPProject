@@ -7,6 +7,7 @@ import huce.Model.AppDB;
 import huce.View.MainApp;
 import huce.View.ViewGraph;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class GeneratePathController extends Controller{
@@ -35,7 +36,7 @@ public class GeneratePathController extends Controller{
                 viewGraph.drawPath(end);
                 viewGraph.setVisible(true);
             } catch (PathNotFoundException err) {
-                err.printStackTrace();
+                JOptionPane.showMessageDialog(myapp, err.getMessage());
             }
 
         } );

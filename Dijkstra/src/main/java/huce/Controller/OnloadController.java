@@ -23,10 +23,7 @@ public class OnloadController extends Controller {
                         OnloadController.super.database.toNodes(myapp);
                         var nodes =
                                 OnloadController.super.database.getNodes();
-                        for (String nodeName : nodes.keySet()) {
-                            myapp.jListRootNode.addItem(nodeName);
-                            myapp.jListToNode.addItem(nodeName);
-                        }
+                        myapp.prepareNodes(nodes);
                     } catch (Exception err) {
                         err.printStackTrace();
                         JOptionPane.showMessageDialog(myapp, err.getMessage());

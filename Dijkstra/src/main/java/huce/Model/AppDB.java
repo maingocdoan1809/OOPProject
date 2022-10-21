@@ -17,6 +17,7 @@ public class AppDB implements AutoCloseable {
     private Connection connection;
     private TreeMap<String, Node> nodes;
     static AppDB database = null;
+    // singleton design pattern
     public static AppDB getModel(String connectionString) {
         if (database == null) {
             database = new AppDB(connectionString);
@@ -40,7 +41,7 @@ public class AppDB implements AutoCloseable {
         try {
 //            this.nodes =   Parser.toNodes(this.get(Integer.parseInt(option)));
 
-            this.nodes =   Parser.toNodes(
+            this.nodes = Parser.toNodes(
                     """
                     graph G {
                     "A" -- "B" [label="30"]
@@ -51,8 +52,11 @@ public class AppDB implements AutoCloseable {
                     }
                     """);
         } catch (GraphvizFileFormatException err) {
-            err.printStackTrace();
+            JOptionPane.showMessageDialog(myapp, err.getMessage());
         }
+    }
+    public void toNodes(String graph) throws GraphvizFileFormatException{
+            this.nodes = Parser.toNodes(graph);
     }
     private String get(int id) {
         return "";
