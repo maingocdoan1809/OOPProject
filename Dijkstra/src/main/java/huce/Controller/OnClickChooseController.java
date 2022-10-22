@@ -8,13 +8,13 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
-public class OnClickOkController extends Controller{
-    public OnClickOkController(AppDB database) {
+public class OnClickChooseController extends Controller{
+    public OnClickChooseController(AppDB database) {
         super(database);
     }
     @Override
     public void controll(MainApp myapp) {
-        myapp.jButtonOk.addActionListener(
+        myapp.jBtnChoose.addActionListener(
                 (ActionEvent event) -> {
                     DefaultTableModel tableModel =
                             (DefaultTableModel) myapp.jTestcaseTable.getModel();
