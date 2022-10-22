@@ -22,10 +22,14 @@ public class OnClickBlockController extends Controller{
             Node srcNode = super.database.getNodes().get(srcNodeName);
             Node blockNode = super.database.getNodes().get(blockNodeName);
             if ( srcNode != blockNode ) {
-                srcNode.blockNode(blockNode);
                 DefaultTableModel blockTable =
                         (DefaultTableModel) myapp.jTableBlock.getModel();
+                if ( srcNode.getBlocked().contains(blockNode) ) {
+                    return;
+                }
+                srcNode.blockNode(blockNode);
                 blockTable.addRow(new String[] {blockNodeName});
+                myapp.jBtnRemove.setEnabled(true);
             } else {
                 JOptionPane.showMessageDialog(myapp, "Cannot block " + srcNode + " to " +
                         "itself.");

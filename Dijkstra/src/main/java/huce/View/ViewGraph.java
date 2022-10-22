@@ -4,6 +4,7 @@ import com.mindfusion.diagramming.Shape;
 import com.mindfusion.diagramming.*;
 import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
+import com.mindfusion.drawing.Pen;
 import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Node.Node;
 
@@ -56,7 +57,7 @@ public class ViewGraph extends JFrame {
         diagram.setShowHandlesOnDrag(true);
         diagram.setAllowLinksRepeat(false);
     }
-    public void drawPath(Node dest) {
+    public void drawPath(Node dest, Pen color) {
         if (dest.pre == null) {
             return;
         }
@@ -65,14 +66,14 @@ public class ViewGraph extends JFrame {
         var links = diagramNodes.get(destName).getIncomingLinks();
         for ( DiagramLink link : links ) {
             if ( link.getOrigin() == diagramNodes.get(nextName)) {
-                link.setPen(Pens.Red);
-                link.setHeadPen(Pens.Red);
+                link.setPen(color);
+                link.setHeadPen(color);
                 link.setLayerIndex(2);
                 link.setTextBrush(Brushes.YellowGreen);
                 break;
             }
         }
-        drawPath(dest.pre);
+        drawPath(dest.pre, color);
     }
     public ViewGraph(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");

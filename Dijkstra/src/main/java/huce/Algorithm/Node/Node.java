@@ -72,6 +72,9 @@ public class Node implements Comparable<Node> {
     public String getName() {
         return this.name;
     }
+    public void resetBlockingNodes() {
+        this.blocked = new HashSet<>();
+    }
     public HashMap<Node, Integer> getAdjacentNodes() {
         return this.adjacentNodes;
     }

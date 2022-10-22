@@ -4,12 +4,10 @@ package huce.View;/*
  */
 
 import huce.Algorithm.Node.Node;
-import huce.Controller.GeneratePathController;
-import huce.Controller.OnClickBlockController;
-import huce.Controller.OnClickChooseController;
-import huce.Controller.OnloadController;
+import huce.Controller.*;
 import huce.Model.AppDB;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.TreeMap;
 
 /**
@@ -28,6 +26,8 @@ public class MainApp extends javax.swing.JFrame {
         new GeneratePathController(database).controll(this);
         new OnClickChooseController(database).controll(this);
         new OnClickBlockController(database).controll(this);
+        new OnRemoveBlockController(database).controll(this);
+        new OnChangeRootController(database).controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -357,6 +357,7 @@ public class MainApp extends javax.swing.JFrame {
     public void prepareNodes(TreeMap<String, Node> nodes) {
         this.jListRootNode.removeAllItems();
         this.jListToNode.removeAllItems();
+        ( (DefaultTableModel) this.jTableBlock.getModel()).setRowCount(0);
         for (String nodeName : nodes.keySet()) {
             this.jListRootNode.addItem(nodeName);
             this.jListToNode.addItem(nodeName);

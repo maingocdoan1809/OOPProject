@@ -20,20 +20,20 @@ public class OnClickChooseController extends Controller{
                             (DefaultTableModel) myapp.jTestcaseTable.getModel();
 
                     int rowSelected = myapp.jTestcaseTable.getSelectedRow();
-                    String graph = (String) tableModel.getValueAt(rowSelected, 2);
-                    if (graph.equals("")) {
-                        JOptionPane.showMessageDialog(myapp, "You need to type your graph first");
-                    } else {
-                        System.out.println(graph);
-                        try {
-                            super.database.toNodes(graph);
-
-                        } catch ( GraphvizFileFormatException err) {
-                            JOptionPane.showMessageDialog(myapp, err.getMessage());
-                        }
-                        var nodes = super.database.getNodes();
-                        myapp.prepareNodes(nodes);
+                    if ( rowSelected == -1 ) {
+                        JOptionPane.showMessageDialog(myapp, "Please select a usecase " +
+                                "from the usecase table first!");
+                        return;
                     }
+                    String graph = (String) tableModel.getValueAt(rowSelected, 2);
+                    try {
+                        super.database.toNodes(graph);
+
+                    } catch ( GraphvizFileFormatException err) {
+                        JOptionPane.showMessageDialog(myapp, err.getMessage());
+                    }
+                    var nodes = super.database.getNodes();
+                    myapp.prepareNodes(nodes);
                 }
         );
     }

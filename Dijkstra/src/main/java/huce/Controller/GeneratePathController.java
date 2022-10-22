@@ -1,5 +1,7 @@
 package huce.Controller;
 
+import com.mindfusion.drawing.Brushes;
+import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
@@ -33,7 +35,13 @@ public class GeneratePathController extends Controller{
                 Dijkstra.travel( start, end );
                 ViewGraph viewGraph = new ViewGraph(nodes);
                 viewGraph.drawGraph();
-                viewGraph.drawPath(end);
+                viewGraph.drawPath(end, Pens.BlueViolet);
+                viewGraph.highlightNode(start, Brushes.BlueViolet);
+                viewGraph.highlightNode(end, Brushes.BlueViolet);
+                var blockedNodes = start.getBlocked();
+                for ( Node blockedNode : blockedNodes ) {
+                    viewGraph.highlightNode(blockedNode, Brushes.Red);
+                }
                 viewGraph.setVisible(true);
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());

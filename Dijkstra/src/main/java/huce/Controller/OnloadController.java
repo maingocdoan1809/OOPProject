@@ -16,7 +16,6 @@ public class OnloadController extends Controller {
 
     @Override
     public void controll(MainApp myapp) {
-        {
             myapp.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowOpened(WindowEvent e) {
@@ -37,8 +36,5 @@ public class OnloadController extends Controller {
                     }
                 }
             });
-
-        }
-
     }
 }
