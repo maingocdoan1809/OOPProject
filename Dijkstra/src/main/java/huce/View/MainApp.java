@@ -8,6 +8,7 @@ import huce.Controller.*;
 import huce.Model.AppDB;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -23,11 +24,12 @@ public class MainApp extends javax.swing.JFrame {
         initComponents();
         var database = AppDB.getModel("");
         new OnloadController(database).controll(this);
-        new GeneratePathController(database).controll(this);
+        new OnGeneratePathController(database).controll(this);
         new OnClickChooseController(database).controll(this);
         new OnClickBlockController(database).controll(this);
         new OnRemoveBlockController(database).controll(this);
         new OnChangeRootController(database).controll(this);
+        new OnViewNodesController(database).controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -357,12 +359,17 @@ public class MainApp extends javax.swing.JFrame {
     public void prepareNodes(TreeMap<String, Node> nodes) {
         this.jListRootNode.removeAllItems();
         this.jListToNode.removeAllItems();
-        ( (DefaultTableModel) this.jTableBlock.getModel()).setRowCount(0);
+        this.jListToNodeBlock.removeAllItems();
+        ( (DefaultTableModel) this.jTableBlock.getModel() ).setRowCount(0);
         for (String nodeName : nodes.keySet()) {
             this.jListRootNode.addItem(nodeName);
             this.jListToNode.addItem(nodeName);
             this.jListToNodeBlock.addItem(nodeName);
         }
+//        this.jListToNode.removeItem( (String) this.jListRootNode.getSelectedItem() );
+//        this.jListToNodeBlock.removeItem( (String) this.jListRootNode.getSelectedItem() );
+//        this.jListToNodeBlock.removeItem( (String) this.jListToNode.getSelectedItem()
+//        );
     }
     /**
      * @param args the command line arguments
@@ -385,12 +392,12 @@ public class MainApp extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jListToNodeBlock;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JMenuItem jMenuImport;
-    private javax.swing.JMenuItem jMenuViewNodes;
+    public javax.swing.JMenuItem jMenuImport;
+    public javax.swing.JMenuItem jMenuViewNodes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTableBlock;
-    private javax.swing.JTable jTableHistory;
+    public javax.swing.JTable jTableHistory;
     public javax.swing.JTable jTestcaseTable;
     // End of variables declaration
 }

@@ -93,7 +93,6 @@ public class Parser {
                 throw new GraphvizFileFormatException();
             }
             String edge = edgeMatcher.group();
-            String label = labelMatcher.group();
             Integer cost = Integer.parseInt(costMatcher.group());
             edges.put(edge, cost);
         }

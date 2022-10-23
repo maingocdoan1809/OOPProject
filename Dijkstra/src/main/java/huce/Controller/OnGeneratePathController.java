@@ -12,9 +12,9 @@ import huce.View.ViewGraph;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
-public class GeneratePathController extends Controller{
+public class OnGeneratePathController extends Controller{
 
-    public GeneratePathController(AppDB database) {
+    public OnGeneratePathController(AppDB database) {
         super(database);
     }
     @Override
