@@ -10,10 +10,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class Parser {
     final static String digraphPattern =
-            "[\\r\\n]*(\"\\w*\"\\s*->\\s*\"\\w*\")\\s*\\[" +
-                    ".*\\][\\r\\n]*";
+            "[\\r\\n]*(\"(\\w+\\s*)+\")\\s*->\\s*(\"(\\w+\\s*)+\")" +
+            "\\s*\\[" +
+            ".*\\][\\r\\n]*";
 //    final static String graphPattern = "(\"(\\w+\\s*)+\")\\s*--\\s*(\"(\\w+\\s*)+\")(.)*[\\n}]";
-    final  static  String graphPattern = "[\\r\\n]*(\"\\w*\"\\s*--\\s*\"\\w*\")\\s*\\[" +
+    final  static  String graphPattern = "[\\r\\n]*(\"(\\w+\\s*)+\")\\s*--\\s*(\"(\\w+\\s*)+\")" +
+        "\\s*\\[" +
         ".*\\][\\r\\n]*";
     private static final String getLabelPattern = "(label\\s*=\\s*\"\\s*[0-9]*\\s*\")";
     private static final String getEdgesPattern = "(\"(\\w+\\s*\\w*)\")(\\s*(->|--)" +

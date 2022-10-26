@@ -31,6 +31,7 @@ public class MainApp extends javax.swing.JFrame {
         new OnRemoveBlockController(database).controll(this);
         new OnChangeRootController(database).controll(this);
         new OnViewNodesController(database).controll(this);
+        new OnChooseFileController(database).controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">

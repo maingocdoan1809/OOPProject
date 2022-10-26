@@ -5,7 +5,6 @@ import com.mindfusion.diagramming.*;
 import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
 import com.mindfusion.drawing.Pen;
-import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
@@ -14,7 +13,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class ViewGraph extends JFrame {
+public class GraphView extends JFrame {
     TreeMap<String, DiagramNode> diagramNodes;
     TreeMap<String, Node> nodes;
     Diagram diagram;
@@ -75,7 +74,7 @@ public class ViewGraph extends JFrame {
         }
         drawPath(dest.pre, color);
     }
-    public ViewGraph(TreeMap<String, Node> nodes) {
+    public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
         this.nodes = nodes;
         this.diagram = new Diagram();

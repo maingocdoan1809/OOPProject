@@ -7,7 +7,7 @@ import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
 import huce.Model.AppDB;
 import huce.View.MainApp;
-import huce.View.ViewGraph;
+import huce.View.GraphView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +33,7 @@ public class OnGeneratePathController extends Controller{
             Dijkstra.setAsRoot(start);
             try {
                 Dijkstra.travel( start, end );
-                ViewGraph viewGraph = new ViewGraph(nodes);
+                GraphView viewGraph = new GraphView(nodes);
                 viewGraph.drawGraph();
                 viewGraph.drawPath(end, Pens.BlueViolet);
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
