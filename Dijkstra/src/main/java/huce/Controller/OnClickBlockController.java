@@ -19,6 +19,10 @@ public class OnClickBlockController extends Controller{
         myapp.jBtnOKBlock.addActionListener( (ActionEvent event) -> {
             String srcNodeName = (String)myapp.jListRootNode.getSelectedItem();
             String blockNodeName = (String)myapp.jListToNodeBlock.getSelectedItem();
+            assert blockNodeName != null;
+            if (blockNodeName.equals("None")) {
+                return;
+            }
             Node srcNode = super.database.getNodes().get(srcNodeName);
             Node blockNode = super.database.getNodes().get(blockNodeName);
             if ( srcNode != blockNode ) {

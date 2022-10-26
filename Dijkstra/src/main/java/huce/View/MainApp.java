@@ -22,7 +22,8 @@ public class MainApp extends javax.swing.JFrame {
      */
     public MainApp() {
         initComponents();
-        var database = AppDB.getModel("");
+        var database = AppDB.getModel(AppDB.getConnectionString("sa", "12345",
+                "OOPPROJECT"));
         new OnloadController(database).controll(this);
         new OnGeneratePathController(database).controll(this);
         new OnClickChooseController(database).controll(this);
@@ -360,6 +361,7 @@ public class MainApp extends javax.swing.JFrame {
         this.jListRootNode.removeAllItems();
         this.jListToNode.removeAllItems();
         this.jListToNodeBlock.removeAllItems();
+        this.jListToNodeBlock.addItem("None");
         ( (DefaultTableModel) this.jTableBlock.getModel() ).setRowCount(0);
         for (String nodeName : nodes.keySet()) {
             this.jListRootNode.addItem(nodeName);

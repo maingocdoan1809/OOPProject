@@ -4,13 +4,14 @@ import com.sun.source.tree.Tree;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.GraphvizFileFormatException;
+import huce.Exception.NoDataException;
 import huce.Graphviz.Parser;
 import huce.View.MainApp;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class AppDB implements AutoCloseable {
@@ -24,54 +25,33 @@ public class AppDB implements AutoCloseable {
         }
         return  database;
     }
+    public static String getConnectionString(String username, String password,
+                                             String dbName) {
+        return ("jdbc:sqlserver://localhost\\SQLEXPRESS;database=%s;encrypt=false;" +
+                "user=%s;password=%s;trustServerCertificate=true").formatted(dbName,
+                username, password);
+    }
     private AppDB(String connectionString) {
         try {
             this.connection = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Ok dey");
     }
-    public void toNodes(MainApp myapp) {
-        String option = JOptionPane.showInputDialog(myapp, "Choose an graph's ID " +
-                        "from " +
-                        "your " +
-                        "database.",
-                0);
-        try {
-//            this.nodes =   Parser.toNodes(this.get(Integer.parseInt(option)));
-
-            this.nodes = Parser.toNodes(
-                    """
-                    graph G {
-                    "A" -- "B" [label="30"]
-                    "A" -- "C" [label="20"]
-                    "C" -- "G" [label="10"]
-                    "G" -- "B" [label="5"]
-                    "B" -- "C" [label="1"]
-                    }
-                    """);
-        } catch (GraphvizFileFormatException err) {
-            JOptionPane.showMessageDialog(myapp, err.getMessage());
-        }
-    }
-    public void toNodes(String graph) throws GraphvizFileFormatException{
+    public void toNodes(String graph) throws GraphvizFileFormatException, NoDataException {
             this.nodes = Parser.toNodes(graph);
     }
-    public String[][] getUseCases() {
-        return new String[][]{
-                new String[] {"1", "Graph1",
+    public ResultSet getUseCases() {
+        try {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(
             """
-            graph Graph1 {
-                "Thanh Hoa" -- "Hue" [label="200"]
-                "Hue" -- "TPHCM" [label="500"]
-                "Thanh Hoa" -- "TPHCM" [label="700"]
-            }
-            """}
-        };
-    }
-    private String get(int id) {
-        return "";
+                Select * from TESTCASE
+                """);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     public TreeMap<String, Node> getNodes() {
         return this.nodes;

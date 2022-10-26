@@ -20,15 +20,15 @@ public class OnloadController extends Controller {
                 @Override
                 public void windowOpened(WindowEvent e) {
                     try {
-                        OnloadController.super.database.toNodes(myapp);
-                        var nodes =
-                                OnloadController.super.database.getNodes();
-                        myapp.prepareNodes(nodes);
                         DefaultTableModel tableModel =
                                 (DefaultTableModel) myapp.jTestcaseTable.getModel();
                         var data = OnloadController.super.database.getUseCases();
-                        for ( var d : data ) {
-                            tableModel.addRow(d);
+                        while (data.next()){
+                            tableModel.addRow( new String[] {
+                                    data.getString("ID"),
+                                    data.getString("Name"),
+                                    data.getString("Graph"),
+                            } );
                         }
                     } catch (Exception err) {
                         err.printStackTrace();

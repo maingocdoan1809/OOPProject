@@ -1,6 +1,7 @@
 package huce.Controller;
 
 import huce.Exception.GraphvizFileFormatException;
+import huce.Exception.NoDataException;
 import huce.Model.AppDB;
 import huce.View.MainApp;
 
@@ -27,10 +28,11 @@ public class OnClickChooseController extends Controller{
                     }
                     String graph = (String) tableModel.getValueAt(rowSelected, 2);
                     try {
+                        System.out.println(graph);
                         super.database.toNodes(graph);
-
-                    } catch ( GraphvizFileFormatException err) {
+                    } catch (GraphvizFileFormatException | NoDataException err) {
                         JOptionPane.showMessageDialog(myapp, err.getMessage());
+                        return;
                     }
                     var nodes = super.database.getNodes();
                     myapp.prepareNodes(nodes);
