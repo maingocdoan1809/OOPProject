@@ -24,8 +24,15 @@ public class OnChooseFileController extends Controller{
                 (ActionEvent event) -> {
                     FileSelectorView fileChooser = new FileSelectorView();
                     fileChooser.setVisible(true);
+
                     Thread t = new Thread(() -> {
-                        while ( FileSelectorView.getFile() == null);
+                        while (FileSelectorView.getFile() == null) {
+                            if ( FileSelectorView.isCancel ) {
+                                FileSelectorView.isCancel = false;
+                                return;
+                            }
+                        }
+
                         try (FileInputStream fi =
                                      new FileInputStream(FileSelectorView.getFile())) {
                             database.toNodes( new String(fi.readAllBytes()) );
@@ -34,7 +41,6 @@ public class OnChooseFileController extends Controller{
                                  GraphvizFileFormatException e) {
                             throw new RuntimeException(e);
                         }
-
                     });
                     t.start();
                 }

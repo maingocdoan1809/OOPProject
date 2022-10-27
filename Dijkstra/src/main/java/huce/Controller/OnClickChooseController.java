@@ -28,7 +28,6 @@ public class OnClickChooseController extends Controller{
                     }
                     String graph = (String) tableModel.getValueAt(rowSelected, 2);
                     try {
-                        System.out.println(graph);
                         super.database.toNodes(graph);
                     } catch (GraphvizFileFormatException | NoDataException err) {
                         JOptionPane.showMessageDialog(myapp, err.getMessage());

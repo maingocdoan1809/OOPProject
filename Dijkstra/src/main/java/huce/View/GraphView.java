@@ -9,6 +9,8 @@ import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.geom.Rectangle2D;
 import java.util.Set;
 import java.util.TreeMap;
