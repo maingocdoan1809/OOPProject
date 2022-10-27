@@ -1,0 +1,3 @@
+graph G {
+"Thanh Hoa" -- "Dien Bien" [label ="100"]
+}
