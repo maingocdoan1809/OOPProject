@@ -25,11 +25,6 @@ public class OnGeneratePathController extends Controller{
             var nodes = super.database.getNodes();
             Node start = nodes.get( selectedStartNode );
             Node end = nodes.get( selectedEndNode );
-            for ( var nodeName : nodes.keySet() ) {
-                Node crr = nodes.get(nodeName);
-                Dijkstra.resetRootState( crr);
-                crr.pre = null;
-            }
             Dijkstra.setAsRoot(start);
             try {
                 Dijkstra.travel( start, end );
@@ -46,7 +41,11 @@ public class OnGeneratePathController extends Controller{
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
             }
-
+            for ( var nodeName : nodes.keySet() ) {
+                Node crr = nodes.get(nodeName);
+                Dijkstra.resetRootState( crr);
+                crr.pre = null;
+            }
         } );
     }
 }
