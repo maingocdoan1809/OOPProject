@@ -1,0 +1,15 @@
+graph g2 {
+
+"A" -- "B" [label="5"]
+"A" -- "C" [label="3"]
+"A" -- "D" [label="6"]
+"B" -- "E" [label="7"]
+"B" -- "C" [label="1"]
+"C" -- "E" [label="2"]
+"C" -- "D" [label="4"]
+"C" -- "F" [label="8"]
+"F" -- "D" [label="3"]
+"F" -- "G" [label="5"]
+"D" -- "G" [label="9"]
+"F" -- "E" [label="4"]
+}
