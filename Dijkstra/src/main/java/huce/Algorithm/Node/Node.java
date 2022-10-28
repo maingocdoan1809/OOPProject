@@ -46,22 +46,21 @@ public class Node implements Comparable<Node> {
         }
         return false;
     }
-    private void blockHelper(Node other, Set<Node> visited) {
+    private void blockHelper(Node other, HashSet<Node> visited) {
         if (this == other) {
             return;
         }
-        if ( this.adjacentNodes.containsKey(other) ) {
-            this.blocked.add(other);
-            visited.add(this);
-        }
+        this.blocked.add(other);
+        visited.add(this);
         for (var adjacentNode : this.adjacentNodes.keySet()) {
             if ( !visited.contains(adjacentNode) ) {
+                visited.add(adjacentNode);
                 adjacentNode.blockHelper(other, visited);
             }
         }
     }
     public void blockNode(Node other) {
-        blockHelper(other, new TreeSet<>());
+        blockHelper(other, new HashSet<>());
     }
     public Set<Node> getBlocked() {
         return this.blocked;
@@ -93,7 +92,7 @@ public class Node implements Comparable<Node> {
     public boolean equals(Object b) {
         if ( b instanceof Node ) {
             if (this.name.equals(((Node) b).name)) {
-                return this.estimate == ((Node) b).estimate;
+                return true;
             }
         }
         return false;
