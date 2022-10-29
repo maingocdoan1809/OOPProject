@@ -17,14 +17,20 @@ public class Dijkstra {
             if ( src.getBlocked().contains(neighbor) ) {
                 continue;
             }
-            boolean isUpdated = neighbor.updateEstimate(src.getEstimate() + srcAdj.get(neighbor));
-            if (!visited.contains(neighbor)) {
-                if (!queue.contains(neighbor))
-                    queue.offer(neighbor);
+            int newEstimate = src.getEstimate() + srcAdj.get(neighbor);
+            if ( neighbor.getEstimate() == newEstimate ) {
+                neighbor.pre.add(src);
             }
+            boolean isUpdated = neighbor.updateEstimate(newEstimate);
             if (isUpdated) {
-                neighbor.pre = src;
+                neighbor.pre.add(src);
             }
+            if (!visited.contains(neighbor)) {
+                if (!queue.contains(neighbor)) {
+                    queue.offer(neighbor);
+                }
+            }
+
         }
         visited.add(src);
         if (queue.size() == 0) {
@@ -45,10 +51,10 @@ public class Dijkstra {
     }
 
     public static String getPath(Node dest, String path) {
-        if (dest == null) {
+        if (dest.pre.size() == 0) {
             return path;
         }
-        return getPath(dest.pre, dest + " >> " + path);
+        return getPath(dest.pre.get(0), dest + " >> " + path);
     }
 
     public static void setAsRoot(Node node) {

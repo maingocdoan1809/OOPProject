@@ -59,22 +59,22 @@ public class GraphView extends JFrame {
         diagram.setAllowLinksRepeat(false);
     }
     public void drawPath(Node dest, Pen color) {
-        if (dest.pre == null) {
-            return;
-        }
-        String destName = dest.getName();
-        String nextName = dest.pre.getName();
-        var links = diagramNodes.get(destName).getIncomingLinks();
-        for ( DiagramLink link : links ) {
-            if ( link.getOrigin() == diagramNodes.get(nextName)) {
-                link.setPen(color);
-                link.setHeadPen(color);
-                link.setLayerIndex(2);
-                link.setTextBrush(Brushes.YellowGreen);
-                break;
-            }
-        }
-        drawPath(dest.pre, color);
+//        if (dest.pre == null) {
+//            return;
+//        }
+//        String destName = dest.getName();
+//        String nextName = dest.pre.getName();
+//        var links = diagramNodes.get(destName).getIncomingLinks();
+//        for ( DiagramLink link : links ) {
+//            if ( link.getOrigin() == diagramNodes.get(nextName)) {
+//                link.setPen(color);
+//                link.setHeadPen(color);
+//                link.setLayerIndex(2);
+//                link.setTextBrush(Brushes.YellowGreen);
+//                break;
+//            }
+//        }
+//        drawPath(dest.pre, color);
     }
     public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
