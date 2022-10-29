@@ -19,7 +19,7 @@ public class Node implements Comparable<Node> {
         this.adjacentNodes = new HashMap<>();
         this.blocked = new HashSet<>();
         this.estimate = Integer.MAX_VALUE;
-        this.pre = null;
+        this.pre = new ArrayList<>();
     }
     public void resetEstimate() {
         this.estimate = Integer.MAX_VALUE;
