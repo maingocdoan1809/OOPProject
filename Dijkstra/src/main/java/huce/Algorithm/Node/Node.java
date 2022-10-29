@@ -2,7 +2,6 @@ package huce.Algorithm.Node;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Node implements Comparable<Node> {
     private String name;
