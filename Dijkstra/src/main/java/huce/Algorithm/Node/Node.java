@@ -1,7 +1,9 @@
 package huce.Algorithm.Node;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+
 
 public class Node implements Comparable<Node> {
     private String name;
@@ -11,7 +13,7 @@ public class Node implements Comparable<Node> {
      */
     private HashMap<Node, Integer> adjacentNodes;
     private Set<Node> blocked;
-    public Node pre;
+    public ArrayList<Node> pre;
     public Node(String name, int estimate) {
         this(name);
         this.estimate = estimate;
@@ -21,7 +23,7 @@ public class Node implements Comparable<Node> {
         this.adjacentNodes = new HashMap<>();
         this.blocked = new HashSet<>();
         this.estimate = Integer.MAX_VALUE;
-        this.pre = null;
+        this.pre = new ArrayList<>();
     }
     public void resetEstimate() {
         this.estimate = Integer.MAX_VALUE;
@@ -37,7 +39,6 @@ public class Node implements Comparable<Node> {
             node.addAdjacency(this, distance, !undirected);
         }
     }
-
     public boolean updateEstimate(int newEstimate) {
         if (this.estimate > newEstimate) {
             this.estimate = newEstimate;
@@ -91,7 +92,7 @@ public class Node implements Comparable<Node> {
     public boolean equals(Object b) {
         if ( b instanceof Node ) {
             if (this.name.equals(((Node) b).name)) {
-                return true;
+                return this.estimate == ((Node) b).estimate;
             }
         }
         return false;
