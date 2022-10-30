@@ -58,7 +58,9 @@ public class OnGeneratePathController extends Controller{
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
             }
-            Dijkstra.reset(nodes);
+            finally {
+                Dijkstra.reset(nodes);
+            }
         } );
     }
 }

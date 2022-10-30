@@ -34,7 +34,7 @@ public class OnRemoveBlockController extends Controller{
                         var nodes= super.database.getNodes();
                         Node src = nodes.get(srcName);
                         Node blockedNode = nodes.get(blockName);
-                        src.getBlocked().remove( blockedNode );
+                        src.removeBlock(blockedNode);
                         JOptionPane.showMessageDialog(myapp, "Removed " + blockName +
                                 " from " + srcName + "'s block list");
                         if ( tableModel.getRowCount() == 0 ) {

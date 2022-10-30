@@ -81,7 +81,7 @@ public class Dijkstra {
     public static void reset(TreeMap<String, Node> nodes) {
         for ( var nodeName : nodes.keySet() ) {
             Node crr = nodes.get(nodeName);
-            Dijkstra.resetRootState( crr);
+            Dijkstra.resetRootState(crr);
             crr.pre = new ArrayList<>();
         }
     }
