@@ -12,8 +12,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.Rectangle2D;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class GraphView extends JFrame {
     TreeMap<String, DiagramNode> diagramNodes;
@@ -58,23 +57,22 @@ public class GraphView extends JFrame {
         diagram.setShowHandlesOnDrag(true);
         diagram.setAllowLinksRepeat(false);
     }
-    public void drawPath(Node dest, Pen color) {
-        if (dest.pre == null) {
-            return;
-        }
-        String destName = dest.getName();
-        String nextName = dest.pre.getName();
-        var links = diagramNodes.get(destName).getIncomingLinks();
-        for ( DiagramLink link : links ) {
-            if ( link.getOrigin() == diagramNodes.get(nextName)) {
-                link.setPen(color);
-                link.setHeadPen(color);
-                link.setLayerIndex(2);
-                link.setTextBrush(Brushes.YellowGreen);
-                break;
+    public void drawPath(TreeSet<Node> path, Pen colorPen, Brush colorBrush, int layer) {
+        var pathArr = path.toArray();
+        for ( int index = pathArr.length - 1; index >= 1; index -- ) {
+            String currNode = ((Node) pathArr[index]).getName();
+            String preNode =  ((Node) pathArr[index - 1]).getName();
+            var links = diagramNodes.get(currNode).getIncomingLinks();
+            for ( DiagramLink link : links ) {
+                if ( link.getOrigin() == diagramNodes.get(preNode)) {
+                    link.setPen(colorPen);
+                    link.setHeadPen(colorPen);
+                    link.setLayerIndex(layer);
+                    link.setTextBrush(colorBrush);
+                    break;
+                }
             }
         }
-        drawPath(dest.pre, color);
     }
     public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");

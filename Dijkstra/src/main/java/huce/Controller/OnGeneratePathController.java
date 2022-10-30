@@ -1,6 +1,8 @@
 package huce.Controller;
 
+import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
+import com.mindfusion.drawing.Pen;
 import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
@@ -11,6 +13,8 @@ import huce.View.GraphView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class OnGeneratePathController extends Controller{
 
@@ -30,7 +34,20 @@ public class OnGeneratePathController extends Controller{
                 Dijkstra.travel( start, end );
                 GraphView viewGraph = new GraphView(nodes);
                 viewGraph.drawGraph();
-                viewGraph.drawPath(end, Pens.BlueViolet);
+                var paths = Dijkstra.extractPaths(end);
+                Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
+                        Pens.OrangeRed};
+                Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
+                        Brushes.OrangeRed};
+                // no more than 3 path will be print:
+                int index = 0;
+                for ( var path : paths ) {
+                    if (index == 3) {
+                        break;
+                    }
+                    viewGraph.drawPath(path,pens[index], brushes[index], 4 - index );
+                    index ++;
+                }
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
                 viewGraph.highlightNode(end, Brushes.BlueViolet);
                 var blockedNodes = start.getBlocked();
@@ -41,11 +58,7 @@ public class OnGeneratePathController extends Controller{
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
             }
-            for ( var nodeName : nodes.keySet() ) {
-                Node crr = nodes.get(nodeName);
-                Dijkstra.resetRootState( crr);
-                crr.pre = null;
-            }
+            Dijkstra.reset(nodes);
         } );
     }
 }
