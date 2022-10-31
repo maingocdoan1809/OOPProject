@@ -3,12 +3,13 @@ package huce.View;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import com.sun.source.tree.Tree;
 import huce.Algorithm.Node.Node;
 import huce.Controller.*;
 import huce.Model.AppDB;
 
 import javax.swing.table.DefaultTableModel;
-import java.util.Set;
+import java.awt.*;
 import java.util.TreeMap;
 
 /**
@@ -32,6 +33,7 @@ public class MainApp extends javax.swing.JFrame {
         new OnChangeRootController(database).controll(this);
         new OnViewNodesController(database).controll(this);
         new OnChooseFileController(database).controll(this);
+        new OnChangeToController(database).controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -353,36 +355,38 @@ public class MainApp extends javax.swing.JFrame {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(0, 0, 0))
         );
-
+        jTestcaseTable.setRowHeight(30);
+        jTableBlock.setRowHeight(20);
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>
-
-    public void prepareNodes(TreeMap<String, Node> nodes) {
+    public void repaintRoot(Object[] nodeName) {
+        System.out.println(nodeName);
         this.jListRootNode.removeAllItems();
+          for ( var node : nodeName ) {
+              this.jListRootNode.addItem( (String) node);
+          }
+    }
+    public  void repaintToList(Object[] nodeName) {
         this.jListToNode.removeAllItems();
-        this.jListToNodeBlock.removeAllItems();
-        this.jListToNodeBlock.addItem("None");
-        ( (DefaultTableModel) this.jTableBlock.getModel() ).setRowCount(0);
-        for (String nodeName : nodes.keySet()) {
-            this.jListRootNode.addItem(nodeName);
-            this.jListToNode.addItem(nodeName);
-            this.jListToNodeBlock.addItem(nodeName);
+        for (var node: nodeName) {
+            this.jListToNode.addItem((String) node);
         }
-//        this.jListToNode.removeItem( (String) this.jListRootNode.getSelectedItem() );
-//        this.jListToNodeBlock.removeItem( (String) this.jListRootNode.getSelectedItem() );
-//        this.jListToNodeBlock.removeItem( (String) this.jListToNode.getSelectedItem()
-//        );
+        this.jListToNode.removeItem(this.jListRootNode.getSelectedItem());
+    }
+    public  void repaintBlockList(Object[] nodeName) {
+        this.jListToNodeBlock.removeAllItems();
+        for (var node: nodeName) {
+            this.jListToNodeBlock.addItem( (String) node);
+        }
+        this.jListToNodeBlock.removeItem(this.jListRootNode.getSelectedItem());
+        this.jListToNodeBlock.removeItem(this.jListToNode.getSelectedItem());
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainApp().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new MainApp().setVisible(true));
     }
 
     // Variables declaration - do not modify

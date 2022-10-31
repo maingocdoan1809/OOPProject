@@ -4,12 +4,8 @@ import huce.Algorithm.Node.Node;
 import huce.Model.AppDB;
 import huce.View.MainApp;
 
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.HashSet;
 
 public class OnChangeRootController extends Controller{
     public OnChangeRootController(AppDB database) {
@@ -22,6 +18,9 @@ public class OnChangeRootController extends Controller{
         myapp.jListRootNode.addActionListener(
                 (ActionEvent event) -> {
                     var nodes = super.database.getNodes();
+                    var nodesStr = database.getNodes().keySet().toArray();
+                    myapp.repaintToList(nodesStr);
+                    myapp.repaintBlockList(nodesStr);
                     for (Node node : nodes.values()) {
                         node.resetBlockingNodes();
                     }

@@ -1,11 +1,7 @@
 package huce.Controller;
 
-import com.sun.tools.javac.Main;
-import huce.Graphviz.Parser;
 import huce.Model.AppDB;
 import huce.View.MainApp;
-
-import javax.swing.*;
 
 public abstract class Controller implements AutoCloseable {
     protected AppDB database;

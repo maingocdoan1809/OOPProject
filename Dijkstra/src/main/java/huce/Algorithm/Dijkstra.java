@@ -1,7 +1,5 @@
 package huce.Algorithm;
 
-import com.mindfusion.diagramming.DiagramLink;
-import com.mindfusion.drawing.Brushes;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
 
