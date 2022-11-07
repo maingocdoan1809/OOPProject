@@ -1,7 +1,5 @@
 package huce.Algorithm;
 
-import com.mindfusion.diagramming.DiagramLink;
-import com.mindfusion.drawing.Brushes;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
 
@@ -81,7 +79,7 @@ public class Dijkstra {
     public static void reset(TreeMap<String, Node> nodes) {
         for ( var nodeName : nodes.keySet() ) {
             Node crr = nodes.get(nodeName);
-            Dijkstra.resetRootState( crr);
+            Dijkstra.resetRootState(crr);
             crr.pre = new ArrayList<>();
         }
     }

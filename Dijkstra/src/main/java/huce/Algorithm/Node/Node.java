@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 
 
 public class Node implements Comparable<Node> {
@@ -46,21 +47,29 @@ public class Node implements Comparable<Node> {
         }
         return false;
     }
-    private void blockHelper(Node other, HashSet<Node> visited) {
+    private void blockOrRemoveHelper(Node other, HashSet<Node> visited,
+                                     Consumer<Set<Node>> funct) {
         if (this == other) {
             return;
         }
-        this.blocked.add(other);
+        funct.accept(this.blocked);
         visited.add(this);
         for (var adjacentNode : this.adjacentNodes.keySet()) {
             if ( !visited.contains(adjacentNode) ) {
                 visited.add(adjacentNode);
-                adjacentNode.blockHelper(other, visited);
+                adjacentNode.blockOrRemoveHelper(other, visited, funct);
             }
         }
     }
     public void blockNode(Node other) {
-        blockHelper(other, new HashSet<>());
+        blockOrRemoveHelper(other, new HashSet<>(), nodes -> {
+            nodes.add(other);
+        });
+    }
+    public void removeBlock(Node other) {
+        blockOrRemoveHelper(other, new HashSet<>(), nodes -> {
+            nodes.remove(other);
+        });
     }
     public Set<Node> getBlocked() {
         return this.blocked;

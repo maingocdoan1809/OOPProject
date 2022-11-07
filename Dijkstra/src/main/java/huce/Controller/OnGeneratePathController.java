@@ -8,13 +8,11 @@ import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
 import huce.Model.AppDB;
-import huce.View.MainApp;
 import huce.View.GraphView;
+import huce.View.MainApp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.HashSet;
 
 public class OnGeneratePathController extends Controller{
 
@@ -39,13 +37,13 @@ public class OnGeneratePathController extends Controller{
                         Pens.OrangeRed};
                 Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
                         Brushes.OrangeRed};
-                // no more than 3 path will be print:
+                // no more than 3 paths will be printed:
                 int index = 0;
                 for ( var path : paths ) {
                     if (index == 3) {
                         break;
                     }
-                    viewGraph.drawPath(path,pens[index], brushes[index], 4 - index );
+                    viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
                     index ++;
                 }
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
@@ -54,11 +52,14 @@ public class OnGeneratePathController extends Controller{
                 for ( Node blockedNode : blockedNodes ) {
                     viewGraph.highlightNode(blockedNode, Brushes.Red);
                 }
+                viewGraph.setLocationRelativeTo(myapp);
                 viewGraph.setVisible(true);
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
             }
-            Dijkstra.reset(nodes);
+            finally {
+                Dijkstra.reset(nodes);
+            }
         } );
     }
 }

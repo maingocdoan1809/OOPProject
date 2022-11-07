@@ -6,11 +6,9 @@ import huce.Model.AppDB;
 import huce.View.FileSelectorView;
 import huce.View.MainApp;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.io.*;
-import java.nio.file.Path;
-import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class OnChooseFileController extends Controller{
     public OnChooseFileController(AppDB database) {
@@ -36,7 +34,11 @@ public class OnChooseFileController extends Controller{
                         try (FileInputStream fi =
                                      new FileInputStream(FileSelectorView.getFile())) {
                             database.toNodes( new String(fi.readAllBytes()) );
-                            myapp.prepareNodes(database.getNodes());
+
+                            var nodes = database.getNodes().keySet().toArray();
+                            myapp.repaintRoot(nodes);
+                            myapp.repaintToList(nodes);
+                            myapp.repaintBlockList(nodes);
                         } catch (IOException | NoDataException |
                                  GraphvizFileFormatException e) {
                             throw new RuntimeException(e);

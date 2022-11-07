@@ -1,9 +1,10 @@
 package huce.Controller;
 
 import huce.Model.AppDB;
-import huce.View.MainApp;
 import huce.View.GraphView;
+import huce.View.MainApp;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 public class OnViewNodesController extends Controller{
@@ -15,8 +16,14 @@ public class OnViewNodesController extends Controller{
     public void controll(MainApp myapp) {
         myapp.jMenuViewNodes.addActionListener(
                 (ActionEvent event) -> {
-                    GraphView viewNodes = new GraphView(this.database.getNodes());
+                    var nodes = this.database.getNodes();
+                    if (nodes == null) {
+                        JOptionPane.showMessageDialog(myapp, "No data to show.");
+                        return;
+                    }
+                    GraphView viewNodes = new GraphView(nodes);
                     viewNodes.drawGraph();
+                    viewNodes.setLocationRelativeTo(myapp);
                     viewNodes.setVisible(true);
                 }
         );

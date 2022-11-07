@@ -1,17 +1,11 @@
 package huce.Model;
 
-import com.sun.source.tree.Tree;
-import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.GraphvizFileFormatException;
 import huce.Exception.NoDataException;
 import huce.Graphviz.Parser;
-import huce.View.MainApp;
 
-import javax.swing.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 public class AppDB implements AutoCloseable {

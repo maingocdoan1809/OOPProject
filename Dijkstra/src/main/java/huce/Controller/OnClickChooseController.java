@@ -29,12 +29,15 @@ public class OnClickChooseController extends Controller{
                     String graph = (String) tableModel.getValueAt(rowSelected, 2);
                     try {
                         super.database.toNodes(graph);
+                        var nodes = database.getNodes().keySet().toArray();
+                        myapp.repaintRoot(nodes);
+                        myapp.repaintToList(nodes);
+                        myapp.repaintBlockList(nodes);
                     } catch (GraphvizFileFormatException | NoDataException err) {
                         JOptionPane.showMessageDialog(myapp, err.getMessage());
                         return;
                     }
-                    var nodes = super.database.getNodes();
-                    myapp.prepareNodes(nodes);
+
                 }
         );
     }
