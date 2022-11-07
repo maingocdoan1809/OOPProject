@@ -38,8 +38,6 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
@@ -87,7 +85,7 @@ public class MainApp extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(234, 234, 234));
 
-
+        jPanel6.setBackground(new java.awt.Color(60, 64, 72));
 
         jLabelTo.setText("To");
 
