@@ -78,14 +78,15 @@ public class MainApp extends javax.swing.JFrame {
 
                 },
                 new String [] {
-                        "Time/Date", "Testcase", "Result"
+                       "ID" ,"Time/Date", "Name", "From", "To"
                 }
         ) {
             Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.String.class,
                     java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                    false, true, false
+                    false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -361,7 +362,6 @@ public class MainApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>
     public void repaintRoot(Object[] nodeName) {
-        System.out.println(nodeName);
         this.jListRootNode.removeAllItems();
           for ( var node : nodeName ) {
               this.jListRootNode.addItem( (String) node);

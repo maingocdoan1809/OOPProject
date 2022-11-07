@@ -24,6 +24,7 @@ public class OnChooseFileController extends Controller{
                     fileChooser.setVisible(true);
 
                     Thread t = new Thread(() -> {
+                        System.out.println("Start...");
                         while (FileSelectorView.getFile() == null) {
                             if ( FileSelectorView.isCancel ) {
                                 FileSelectorView.isCancel = false;
@@ -43,6 +44,7 @@ public class OnChooseFileController extends Controller{
                                  GraphvizFileFormatException e) {
                             throw new RuntimeException(e);
                         }
+                        System.out.println("stop");
                     });
                     t.start();
                 }

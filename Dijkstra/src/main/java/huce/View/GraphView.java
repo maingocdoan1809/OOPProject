@@ -2,10 +2,7 @@ package huce.View;
 
 import com.mindfusion.diagramming.Shape;
 import com.mindfusion.diagramming.*;
-import com.mindfusion.drawing.Align;
-import com.mindfusion.drawing.Brush;
-import com.mindfusion.drawing.Pen;
-import com.mindfusion.drawing.Pens;
+import com.mindfusion.drawing.*;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
@@ -61,27 +58,38 @@ public class GraphView extends JFrame {
         diagram.setShowHandlesOnDrag(true);
         diagram.setAllowLinksRepeat(false);
     }
-    public void drawPath(TreeSet<Node> path, Pen colorPen, Brush colorBrush, int layer) {
-        var pathArr = path.toArray();
-        for ( int index = pathArr.length - 1; index >= 1; index -- ) {
-            String currNode = ((Node) pathArr[index]).getName();
-            String preNode =  ((Node) pathArr[index - 1]).getName();
-            var links = diagramNodes.get(currNode).getIncomingLinks();
-            for ( DiagramLink link : links ) {
-                if ( link.getOrigin() == diagramNodes.get(preNode)) {
-                    if ( link.getPen() != null ) {
-                        link.setPen(Pens.YellowGreen);
-                        link.setHeadPen(Pens.YellowGreen);
-                    } else {
-                        link.setPen(colorPen);
-                        link.setHeadPen(colorPen);
+    synchronized public void drawPath(TreeSet<Node> path, Pen colorPen, Brush colorBrush,
+                           int layer) {
+        Thread thread = new Thread(() -> {
+            var pathArr = path.toArray();
+            for ( int index = 0; index < pathArr.length - 1; index ++ ) {
+                try {
+                    Thread.sleep(800);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                String currNode = ((Node) pathArr[index]).getName();
+                String preNode =  ((Node) pathArr[index + 1]).getName();
+                var currDigNode = diagramNodes.get(currNode);
+                diagramNodes.get(preNode).setBrush(Brushes.DarkOrange);
+                var links = currDigNode.getOutgoingLinks();
+                for ( DiagramLink link : links ) {
+                    if ( link.getDestination() == diagramNodes.get(preNode)) {
+                        if ( link.getPen() != null ) {
+                            link.setPen(Pens.YellowGreen);
+                            link.setHeadPen(Pens.YellowGreen);
+                        } else {
+                            link.setPen(colorPen);
+                            link.setHeadPen(colorPen);
+                        }
+                        link.setLayerIndex(layer);
+                        link.setTextBrush(colorBrush);
+                        break;
                     }
-                    link.setLayerIndex(layer);
-                    link.setTextBrush(colorBrush);
-                    break;
                 }
             }
-        }
+        });
+        thread.start();
     }
     public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");

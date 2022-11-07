@@ -16,6 +16,7 @@ public class FileSelectorView extends JFrame{
     public FileSelectorView() {
         super("Select a .dot file");
         JPanel mainPanel = new JPanel();
+        isCancel = false;
         JFileChooser fileChooser = new JFileChooser() {
             @Override
             public void approveSelection() {
@@ -25,6 +26,7 @@ public class FileSelectorView extends JFrame{
 
             @Override
             public void cancelSelection() {
+                file = null;
                 isCancel = true;
                 FileSelectorView.super.dispose();
             }
@@ -51,6 +53,7 @@ public class FileSelectorView extends JFrame{
                     @Override
                     public void windowClosed(WindowEvent e) {
                         isCancel = true;
+                        file = null;
                     }
                 }
         );
