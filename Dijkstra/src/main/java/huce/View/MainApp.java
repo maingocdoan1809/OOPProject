@@ -38,8 +38,6 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
@@ -409,7 +407,6 @@ public class MainApp extends javax.swing.JFrame {
     }// </editor-fold>
 
     public void repaintRoot(Object[] nodeName) {
-        System.out.println(nodeName);
         this.jListRootNode.removeAllItems();
           for ( var node : nodeName ) {
               this.jListRootNode.addItem( (String) node);

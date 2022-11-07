@@ -35,7 +35,6 @@ public class OnClickChooseController extends Controller{
                         myapp.repaintBlockList(nodes);
                     } catch (GraphvizFileFormatException | NoDataException err) {
                         JOptionPane.showMessageDialog(myapp, err.getMessage());
-                        return;
                     }
 
                 }

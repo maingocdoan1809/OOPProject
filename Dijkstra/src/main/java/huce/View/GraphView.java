@@ -63,8 +63,8 @@ public class GraphView extends JFrame {
         diagram.setShowHandlesOnDrag(true);
         diagram.setAllowLinksRepeat(false);
     }
-    synchronized public void drawPath(TreeSet<Node> path, Pen colorPen, Brush colorBrush,
-                                      int layer) {
+    synchronized public void drawPath(TreeSet<Node> path, Pen colorPen,
+                                      Brush colorBrush, int layer) {
         Thread thread = new Thread(() -> {
             var pathArr = path.toArray();
             for ( int index = 0; index < pathArr.length - 1; index ++ ) {
