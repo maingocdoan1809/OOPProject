@@ -33,12 +33,9 @@ public class MainApp extends javax.swing.JFrame {
         new OnClickBlockController(database).controll(this);
         new OnRemoveBlockController(database).controll(this);
         new OnChangeRootController(database).controll(this);
-        new OnViewNodesController(database).controll(this);
         new OnChooseFileController(database).controll(this);
         new OnChangeToController(database).controll(this);
     }
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
@@ -70,15 +67,10 @@ public class MainApp extends javax.swing.JFrame {
         jTestcaseTable = new javax.swing.JTable();
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         javax.swing.JPanel jPanel9 = new javax.swing.JPanel();
-        javax.swing.JPanel jPanel11 = new javax.swing.JPanel();
-        jBtnReview = new javax.swing.JButton();
-        jBtnRemoveHistory = new javax.swing.JButton();
-        javax.swing.JScrollPane jScrollPane3 = new javax.swing.JScrollPane();
-        jTableHistory = new javax.swing.JTable();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        jPanelPreview = new javax.swing.JPanel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
-        jMenuViewNodes = new javax.swing.JMenuItem();
         jMenuImport = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,6 +81,9 @@ public class MainApp extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(60, 64, 72));
 
+        jPanel5.setBackground(new java.awt.Color(60, 64, 72));
+
+        jLabelTo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTo.setText("To");
 
         jListToNode.setBorder(null);
@@ -109,6 +104,9 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(jListToNode, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(60, 64, 72));
+
+        jLabelRoot.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRoot.setText("From/Root");
 
         jListRootNode.setBorder(null);
@@ -129,6 +127,9 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(jListRootNode, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel7.setBackground(new java.awt.Color(60, 64, 72));
+
+        jLabelTo1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTo1.setText("Block");
 
         jListToNodeBlock.setBorder(null);
@@ -231,7 +232,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82)
                                 .addComponent(jBtnGenerate)
-                                .addContainerGap(156, Short.MAX_VALUE))
+                                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         jPanel4.setLayout(new java.awt.GridLayout(0, 1));
@@ -249,6 +250,7 @@ public class MainApp extends javax.swing.JFrame {
 
         jTestcaseTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
+
                 },
                 new String [] {
                         "ID", "Name", "Graph"
@@ -269,8 +271,8 @@ public class MainApp extends javax.swing.JFrame {
         jTestcaseTable.setShowGrid(true);
         jTestcaseTable.setSurrendersFocusOnKeystroke(true);
         jTestcaseTable.getTableHeader().setReorderingAllowed(false);
-        jTestcaseTable.getColumnModel().getColumn(0).setMaxWidth(80);
         jScrollPane2.setViewportView(jTestcaseTable);
+
         jPanel8.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Cascadia Mono", 0, 24)); // NOI18N
@@ -284,61 +286,15 @@ public class MainApp extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 10, 10));
-
-        jBtnReview.setBackground(new java.awt.Color(224, 20, 76));
-        jBtnReview.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnReview.setText("Review");
-        jPanel11.add(jBtnReview);
-
-        jBtnRemoveHistory.setBackground(new java.awt.Color(224, 20, 76));
-        jBtnRemoveHistory.setForeground(new java.awt.Color(255, 255, 255));
-        jBtnRemoveHistory.setText("Remove");
-        jPanel11.add(jBtnRemoveHistory);
-
-        jPanel9.add(jPanel11, java.awt.BorderLayout.PAGE_END);
-
-        jTableHistory.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-
-                },
-                new String [] {
-                        "ID", "Time/Date", "Name", "From", "To"
-                }
-        ) {
-            Class[] types = new Class [] {
-                    java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                    false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTableHistory.setGridColor(new java.awt.Color(57, 62, 70));
-        jTableHistory.setRowHeight(30);
-        jTableHistory.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTableHistory.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTableHistory.setShowGrid(true);
-        jTableHistory.setSurrendersFocusOnKeystroke(true);
-        jTableHistory.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTableHistory);
-
-        jPanel9.add(jScrollPane3, java.awt.BorderLayout.CENTER);
-
         jLabel1.setFont(new java.awt.Font("Cascadia Mono", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(60, 64, 72));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("History");
+        jLabel1.setText("Preview");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel9.add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanelPreview.setLayout(new java.awt.CardLayout());
+        jPanel9.add(jPanelPreview, java.awt.BorderLayout.CENTER);
 
         jPanel4.add(jPanel9);
 
@@ -349,7 +305,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, 0)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
                                 .addGap(0, 0, 0))
         );
         jPanel2Layout.setVerticalGroup(
@@ -391,10 +347,6 @@ public class MainApp extends javax.swing.JFrame {
         jMenu.setToolTipText("");
         jMenu.setMargin(new java.awt.Insets(3, 16, 3, 16));
 
-        jMenuViewNodes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuViewNodes.setText("View Nodes");
-        jMenu.add(jMenuViewNodes);
-
         jMenuImport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuImport.setText("Import graph");
         jMenu.add(jMenuImport);
@@ -432,7 +384,25 @@ public class MainApp extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> new MainApp().setVisible(true));
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException |
+                 IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainApp().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify
@@ -440,17 +410,14 @@ public class MainApp extends javax.swing.JFrame {
     public javax.swing.JButton jBtnGenerate;
     public javax.swing.JButton jBtnOKBlock;
     public javax.swing.JButton jBtnRemove;
-    public javax.swing.JButton jBtnRemoveHistory;
-    public javax.swing.JButton jBtnReview;
     public javax.swing.JComboBox<String> jListRootNode;
     public javax.swing.JComboBox<String> jListToNode;
     public javax.swing.JComboBox<String> jListToNodeBlock;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenuBar jMenuBar;
     public javax.swing.JMenuItem jMenuImport;
-    public javax.swing.JMenuItem jMenuViewNodes;
+    public javax.swing.JPanel jPanelPreview;
     public javax.swing.JTable jTableBlock;
-    public javax.swing.JTable jTableHistory;
     public javax.swing.JTable jTestcaseTable;
     // End of variables declaration
 }

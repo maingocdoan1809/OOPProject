@@ -3,11 +3,14 @@ package huce.View;
 import com.mindfusion.diagramming.Shape;
 import com.mindfusion.diagramming.*;
 import com.mindfusion.diagramming.SpringLayout;
+import com.mindfusion.diagramming.builders.DiagramBuilder;
 import com.mindfusion.drawing.*;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.sql.Connection;
 import java.util.PriorityQueue;
@@ -27,7 +30,7 @@ public class GraphView extends JFrame {
     static private TreeMap<String, DiagramNode> toDiagramNodes(Set<String> nodes,
                                                                Diagram diagram) {
         TreeMap<String, DiagramNode> diagramNodes = new TreeMap<>();
-        Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 15);
+        Rectangle2D.Float bounds = new Rectangle2D.Float(100, 1000, 10, 10);
         for (var nodeName : nodes) {
             ShapeNode shapeNode = diagram.getFactory().createShapeNode(bounds);
             shapeNode.setShape(Shape.getShapes().get(45));
@@ -47,6 +50,7 @@ public class GraphView extends JFrame {
         link.setShadowOffsetY(0);
     }
     public void drawGraph() {
+
         for ( var diaNodeName : diagramNodes.keySet() ) {
             ShapeNode from = (ShapeNode) diagramNodes.get(diaNodeName);
             var adjacentNodes = nodes.get(diaNodeName).getAdjacentNodes();
@@ -56,6 +60,7 @@ public class GraphView extends JFrame {
                 connect(diagram, from, to, distance);
             }
         }
+
     }
     public void highlightNode(Node src, Brush color) {
         DiagramNode from = this.diagramNodes.get(src.getName());
@@ -115,10 +120,12 @@ public class GraphView extends JFrame {
                 new com.mindfusion.diagramming.DiagramView(diagram);
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane(diagramView);
         CircularLayout circularLayoutlayout = new CircularLayout();
-        circularLayoutlayout.setRadius(70f);
+        circularLayoutlayout.setRadius(55f);
         diagramSetUp(diagram, circularLayoutlayout);
         jBtnReload = new javax.swing.JButton();
         jBtnStart = new javax.swing.JButton();
+        jBtnReload.setEnabled(false);
+        jBtnStart.setEnabled(false);
         jBtnAnelLayout = new javax.swing.JButton();
         jBtnCirLayout = new javax.swing.JButton();
         jBtnSpringLayout = new javax.swing.JButton();
@@ -149,7 +156,6 @@ public class GraphView extends JFrame {
         );
 
         jScrollPane1.setViewportView(diagramView);
-
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         jBtnReload.setText("Reload");
@@ -184,6 +190,7 @@ public class GraphView extends JFrame {
                                 .addGap(0, 0, 0)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+        diagramView.setBehavior(Behavior.PanAndModify);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         pack();
@@ -212,6 +219,7 @@ public class GraphView extends JFrame {
 
     }
     public void addStartEvent(PriorityQueue<TreeSet<Node>> paths) {
+        this.jBtnStart.setEnabled(true);
         this.jBtnStart.addActionListener(e -> {
             Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
                     Pens.OrangeRed};
@@ -233,6 +241,7 @@ public class GraphView extends JFrame {
 
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
+        this.jBtnReload.setEnabled(true);
         this.jBtnReload.addActionListener(e -> {
             for (var path : paths) {
                 var pathArr = path.toArray();
@@ -256,5 +265,7 @@ public class GraphView extends JFrame {
             }
         });
     }
-
+    public Diagram getDiagram(){
+        return this.diagram;
+    }
 }

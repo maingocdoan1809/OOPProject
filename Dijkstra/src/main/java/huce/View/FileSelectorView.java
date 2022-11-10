@@ -6,6 +6,10 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class FileSelectorView extends JFrame{
     private static File file = null;
@@ -41,7 +45,6 @@ public class FileSelectorView extends JFrame{
                 return null;
             }
         });
-        fileChooser.changeToParentDirectory();
         mainPanel.setSize(500, 500);
         mainPanel.setLayout(new BorderLayout());
         mainPanel.add(fileChooser, BorderLayout.CENTER);

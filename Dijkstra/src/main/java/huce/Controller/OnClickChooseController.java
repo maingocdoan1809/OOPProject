@@ -3,6 +3,7 @@ package huce.Controller;
 import huce.Exception.GraphvizFileFormatException;
 import huce.Exception.NoDataException;
 import huce.Model.AppDB;
+import huce.View.GraphView;
 import huce.View.MainApp;
 
 import javax.swing.*;
@@ -29,6 +30,11 @@ public class OnClickChooseController extends Controller{
                     String graph = (String) tableModel.getValueAt(rowSelected, 2);
                     try {
                         super.database.toNodes(graph);
+                        GraphView viewNodes = new GraphView(super.database.getNodes());
+                        viewNodes.drawGraph();
+                        viewNodes.setLocationRelativeTo(myapp);
+//                        myapp.jPreview.setDiagram( viewNodes.getDiagram() );
+                        myapp.jPanelPreview.add(viewNodes.getContentPane());
                         var nodes = database.getNodes().keySet().toArray();
                         myapp.repaintRoot(nodes);
                         myapp.repaintToList(nodes);
