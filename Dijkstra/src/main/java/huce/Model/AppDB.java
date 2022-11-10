@@ -26,11 +26,11 @@ public class AppDB implements AutoCloseable {
                 username, password);
     }
     private AppDB(String connectionString) {
-//        try {
-//            this.connection = DriverManager.getConnection(connectionString);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            this.connection = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public void toNodes(String graph) throws GraphvizFileFormatException, NoDataException {
             this.nodes = Parser.toNodes(graph);
