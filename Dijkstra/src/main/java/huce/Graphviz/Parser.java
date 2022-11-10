@@ -13,7 +13,6 @@ public class Parser {
             "[\\r\\n]*(\"(\\w+\\s*)+\")\\s*->\\s*(\"(\\w+\\s*)+\")" +
             "\\s*\\[" +
             ".*\\][\\r\\n]*";
-//    final static String graphPattern = "(\"(\\w+\\s*)+\")\\s*--\\s*(\"(\\w+\\s*)+\")(.)*[\\n}]";
     final  static  String graphPattern = "[\\r\\n]*(\"(\\w+\\s*)+\")\\s*--\\s*(\"(\\w+\\s*)+\")" +
         "\\s*\\[" +
         ".*\\][\\r\\n]*";
@@ -91,7 +90,6 @@ public class Parser {
             Matcher edgeMatcher = edgePattern.matcher(edgeAndDistance);
             Matcher labelMatcher = labelPattern.matcher(edgeAndDistance);
             Matcher costMatcher = costPattern.matcher(edgeAndDistance);
-
             boolean hasEdge = edgeMatcher.find();
             boolean hasLabel = labelMatcher.find();
             boolean hasCost = costMatcher.find();

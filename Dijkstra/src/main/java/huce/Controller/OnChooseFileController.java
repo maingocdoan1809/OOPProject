@@ -4,6 +4,7 @@ import huce.Exception.GraphvizFileFormatException;
 import huce.Exception.NoDataException;
 import huce.Model.AppDB;
 import huce.View.FileSelectorView;
+import huce.View.GraphView;
 import huce.View.MainApp;
 
 import java.awt.event.ActionEvent;
@@ -24,9 +25,11 @@ public class OnChooseFileController extends Controller{
                     fileChooser.setVisible(true);
 
                     Thread t = new Thread(() -> {
+                        System.out.println("Start...");
                         while (FileSelectorView.getFile() == null) {
                             if ( FileSelectorView.isCancel ) {
                                 FileSelectorView.isCancel = false;
+                                System.out.println("Stop");
                                 return;
                             }
                         }
@@ -36,6 +39,11 @@ public class OnChooseFileController extends Controller{
                             database.toNodes( new String(fi.readAllBytes()) );
 
                             var nodes = database.getNodes().keySet().toArray();
+                            GraphView viewNodes = new GraphView(super.database.getNodes());
+                            viewNodes.drawGraph();
+                            viewNodes.setLocationRelativeTo(myapp);
+                            //  myapp.jPreview.setDiagram( viewNodes.getDiagram() );
+                            myapp.jPanelPreview.add(viewNodes.getContentPane());
                             myapp.repaintRoot(nodes);
                             myapp.repaintToList(nodes);
                             myapp.repaintBlockList(nodes);
@@ -43,6 +51,7 @@ public class OnChooseFileController extends Controller{
                                  GraphvizFileFormatException e) {
                             throw new RuntimeException(e);
                         }
+                        System.out.println("stop");
                     });
                     t.start();
                 }

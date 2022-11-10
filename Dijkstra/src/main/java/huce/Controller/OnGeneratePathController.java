@@ -13,6 +13,7 @@ import huce.View.MainApp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.concurrent.CountDownLatch;
 
 public class OnGeneratePathController extends Controller{
 
@@ -33,25 +34,22 @@ public class OnGeneratePathController extends Controller{
                 GraphView viewGraph = new GraphView(nodes);
                 viewGraph.drawGraph();
                 var paths = Dijkstra.extractPaths(end);
-                Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
-                        Pens.OrangeRed};
-                Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
-                        Brushes.OrangeRed};
-                // no more than 3 paths will be printed:
-                int index = 0;
-                for ( var path : paths ) {
-                    if (index == 3) {
-                        break;
-                    }
-                    viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
-                    index ++;
-                }
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
                 viewGraph.highlightNode(end, Brushes.BlueViolet);
-                var blockedNodes = start.getBlocked();
-                for ( Node blockedNode : blockedNodes ) {
-                    viewGraph.highlightNode(blockedNode, Brushes.Red);
-                }
+                Thread drawBlockNodes = new Thread(()-> {
+                    var blockedNodes = start.getBlocked();
+                    for ( Node blockedNode : blockedNodes ) {
+                        viewGraph.highlightNode(blockedNode, Brushes.Red);
+                        try {
+                            Thread.sleep(500);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                drawBlockNodes.start();
+                viewGraph.addStartEvent(paths);
+                viewGraph.addReloadEvent(paths);
                 viewGraph.setLocationRelativeTo(myapp);
                 viewGraph.setVisible(true);
             } catch (PathNotFoundException err) {
