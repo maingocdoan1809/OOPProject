@@ -8,7 +8,9 @@ import huce.Algorithm.Node.Node;
 import huce.Controller.*;
 import huce.Model.AppDB;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.util.TreeMap;
 
@@ -247,7 +249,6 @@ public class MainApp extends javax.swing.JFrame {
 
         jTestcaseTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
-
                 },
                 new String [] {
                         "ID", "Name", "Graph"
@@ -268,8 +269,8 @@ public class MainApp extends javax.swing.JFrame {
         jTestcaseTable.setShowGrid(true);
         jTestcaseTable.setSurrendersFocusOnKeystroke(true);
         jTestcaseTable.getTableHeader().setReorderingAllowed(false);
+        jTestcaseTable.getColumnModel().getColumn(0).setMaxWidth(80);
         jScrollPane2.setViewportView(jTestcaseTable);
-
         jPanel8.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         jLabel2.setFont(new java.awt.Font("Cascadia Mono", 0, 24)); // NOI18N

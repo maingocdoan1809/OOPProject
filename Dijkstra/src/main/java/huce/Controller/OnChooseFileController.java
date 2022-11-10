@@ -28,6 +28,7 @@ public class OnChooseFileController extends Controller{
                         while (FileSelectorView.getFile() == null) {
                             if ( FileSelectorView.isCancel ) {
                                 FileSelectorView.isCancel = false;
+                                System.out.println("Stop");
                                 return;
                             }
                         }

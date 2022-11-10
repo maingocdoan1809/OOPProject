@@ -34,23 +34,8 @@ public class OnGeneratePathController extends Controller{
                 GraphView viewGraph = new GraphView(nodes);
                 viewGraph.drawGraph();
                 var paths = Dijkstra.extractPaths(end);
-                Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
-                        Pens.OrangeRed};
-                Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
-                        Brushes.OrangeRed};
-                // no more than 3 paths will be printed:
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
-                Thread drawPaths = new Thread( ()-> {
-                    int index = 0;
-                    for ( var path : paths ) {
-                        if (index == 3) {
-                            break;
-                        }
-                        viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
-                        index ++;
-                    }
-                    viewGraph.highlightNode(end, Brushes.BlueViolet);
-                } );
+                viewGraph.highlightNode(end, Brushes.BlueViolet);
                 Thread drawBlockNodes = new Thread(()-> {
                     var blockedNodes = start.getBlocked();
                     for ( Node blockedNode : blockedNodes ) {
@@ -62,8 +47,9 @@ public class OnGeneratePathController extends Controller{
                         }
                     }
                 });
-                drawPaths.start();
                 drawBlockNodes.start();
+                viewGraph.addStartEvent(paths);
+                viewGraph.addReloadEvent(paths);
                 viewGraph.setLocationRelativeTo(myapp);
                 viewGraph.setVisible(true);
             } catch (PathNotFoundException err) {

@@ -2,12 +2,15 @@ package huce.View;
 
 import com.mindfusion.diagramming.Shape;
 import com.mindfusion.diagramming.*;
+import com.mindfusion.diagramming.SpringLayout;
 import com.mindfusion.drawing.*;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.sql.Connection;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -76,7 +79,9 @@ public class GraphView extends JFrame {
                 String currNode = ((Node) pathArr[index]).getName();
                 String preNode =  ((Node) pathArr[index + 1]).getName();
                 var currDigNode = diagramNodes.get(currNode);
-                diagramNodes.get(preNode).setBrush(Brushes.DarkOrange);
+                if ( index < path.size() - 2  ) {
+                    diagramNodes.get(preNode).setBrush(Brushes.DarkOrange);
+                }
                 var links = currDigNode.getOutgoingLinks();
                 for ( DiagramLink link : links ) {
                     if ( link.getDestination() == diagramNodes.get(preNode)) {
@@ -117,7 +122,6 @@ public class GraphView extends JFrame {
         jBtnAnelLayout = new javax.swing.JButton();
         jBtnCirLayout = new javax.swing.JButton();
         jBtnSpringLayout = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -187,6 +191,70 @@ public class GraphView extends JFrame {
     public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
         initComponents(nodes);
+        this.jBtnSpringLayout.addActionListener( (e) -> {
+            SpringLayout layout = new SpringLayout();
+            layout.setNodeDistance(60);
+            layout.setMinimizeCrossings(true);
+            layout.arrange(diagram);
+        } );
+        this.jBtnCirLayout.addActionListener( (e) -> {
+            CircularLayout circularLayout = new CircularLayout();
+            circularLayout.setRadius(60f);
+            diagramSetUp(diagram, circularLayout);
+        } );
+        this.jBtnAnelLayout.addActionListener( (e) -> {
+            AnnealLayout annealLayout = new AnnealLayout();
+            annealLayout.setCrossingLinksCost(10);
+            annealLayout.setNodeLinkDistFactor(10);
+            annealLayout.setLinkLengthFactor(0.06);
+            annealLayout.arrange(diagram);
+        } );
 
     }
+    public void addStartEvent(PriorityQueue<TreeSet<Node>> paths) {
+        this.jBtnStart.addActionListener(e -> {
+            Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
+                    Pens.OrangeRed};
+            Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
+                    Brushes.OrangeRed};
+            // no more than 3 paths will be printed:
+            Thread drawPaths = new Thread( ()-> {
+                int index = 0;
+                for ( var path : paths ) {
+                    if (index == 3) {
+                        break;
+                    }
+                    drawPath(path,pens[index], brushes[index], 5 - index );
+                    index ++;
+                }
+            } );
+            drawPaths.start();
+        });
+
+    }
+    public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
+        this.jBtnReload.addActionListener(e -> {
+            for (var path : paths) {
+                var pathArr = path.toArray();
+                for ( int index = 0; index < pathArr.length - 1; index ++ ) {
+                    String currNode = ((Node) pathArr[index]).getName();
+                    String preNode =  ((Node) pathArr[index + 1]).getName();
+                    var currDigNode = diagramNodes.get(currNode);
+                    if ( index < path.size() - 2  ) {
+                        diagramNodes.get(preNode).setBrush(null);
+                    }
+                    var links = currDigNode.getOutgoingLinks();
+                    for ( DiagramLink link : links ) {
+                        if ( link.getDestination() == diagramNodes.get(preNode)) {
+                            link.setPen(null);
+                            link.setHeadPen(null);
+                            link.setTextBrush(null);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+    }
+
 }
