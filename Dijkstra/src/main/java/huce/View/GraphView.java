@@ -1,18 +1,14 @@
 package huce.View;
 
 import com.mindfusion.diagramming.Shape;
-import com.mindfusion.diagramming.*;
 import com.mindfusion.diagramming.SpringLayout;
-import com.mindfusion.diagramming.builders.DiagramBuilder;
+import com.mindfusion.diagramming.*;
 import com.mindfusion.drawing.*;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import java.sql.Connection;
 import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -22,6 +18,7 @@ public class GraphView extends JFrame {
     TreeMap<String, DiagramNode> diagramNodes;
     TreeMap<String, Node> nodes;
     Diagram diagram;
+    DiagramView diagramView;
     private javax.swing.JButton jBtnAnelLayout;
     private javax.swing.JButton jBtnCirLayout;
     private javax.swing.JButton jBtnReload;
@@ -30,7 +27,7 @@ public class GraphView extends JFrame {
     static private TreeMap<String, DiagramNode> toDiagramNodes(Set<String> nodes,
                                                                Diagram diagram) {
         TreeMap<String, DiagramNode> diagramNodes = new TreeMap<>();
-        Rectangle2D.Float bounds = new Rectangle2D.Float(100, 1000, 10, 10);
+        Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 13, 13);
         for (var nodeName : nodes) {
             ShapeNode shapeNode = diagram.getFactory().createShapeNode(bounds);
             shapeNode.setShape(Shape.getShapes().get(45));
@@ -114,13 +111,11 @@ public class GraphView extends JFrame {
 
         this.nodes = nodes;
         this.diagram = new Diagram();
-//        Rectangle2D.Float bounds = new Rectangle2D.Float(0, 0, 15, 15);
-        this.diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
-        com.mindfusion.diagramming.DiagramView diagramView =
-                new com.mindfusion.diagramming.DiagramView(diagram);
+         this.diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
+        this.diagramView = new DiagramView(diagram);
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane(diagramView);
         CircularLayout circularLayoutlayout = new CircularLayout();
-        circularLayoutlayout.setRadius(55f);
+        circularLayoutlayout.setRadius(45f);
         diagramSetUp(diagram, circularLayoutlayout);
         jBtnReload = new javax.swing.JButton();
         jBtnStart = new javax.swing.JButton();
@@ -160,17 +155,26 @@ public class GraphView extends JFrame {
 
         jBtnReload.setText("Reload");
         jPanel1.add(jBtnReload);
-
+        jBtnReload.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnReload.setForeground(new Color(255, 255, 255));
         jBtnStart.setLabel("Start");
+        jBtnStart.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnStart.setForeground(new Color(255, 255, 255));
         jPanel1.add(jBtnStart);
 
         jBtnAnelLayout.setLabel("AnnealLayout");
+        jBtnAnelLayout.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnAnelLayout.setForeground(new Color(255, 255, 255));
         jPanel1.add(jBtnAnelLayout);
 
         jBtnCirLayout.setText("Circular Layout");
+        jBtnCirLayout.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnCirLayout.setForeground(new Color(255, 255, 255));
         jPanel1.add(jBtnCirLayout);
 
         jBtnSpringLayout.setLabel("Spring Layout");
+        jBtnSpringLayout.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnSpringLayout.setForeground(new Color(255, 255, 255));
         jPanel1.add(jBtnSpringLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,10 +195,14 @@ public class GraphView extends JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         diagramView.setBehavior(Behavior.PanAndModify);
+        diagramView.setZoomFactor(110f);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         pack();
     }// </editor-fold>
+    public void setZoomFactor(float factor) {
+        this.diagramView.setZoomFactor(factor);
+    }
     public GraphView(TreeMap<String, Node> nodes) {
         super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
         initComponents(nodes);
@@ -264,8 +272,5 @@ public class GraphView extends JFrame {
                 }
             }
         });
-    }
-    public Diagram getDiagram(){
-        return this.diagram;
     }
 }
