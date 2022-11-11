@@ -1,0 +1,6 @@
+graph g4 {
+
+"Thanh Hoa" -- "Nam Dinh" [label = "10"]
+"Thanh Hoa" -- "Ninh Binh" [label = "5"]
+"Ninh Binh" -- "Nam Dinh" [label = "5"]
+}

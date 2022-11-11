@@ -1,0 +1,14 @@
+graph g3 {
+
+"A" -- "C" [label = "3"]
+"A" -- "F" [label = "2"]
+"C" -- "F" [label = "2"]
+"C" -- "E" [label = "1"]
+"E" -- "F" [label = "3"]
+"E" -- "B" [label = "2"]
+"D" -- "C" [label = "4"]
+"D" -- "B" [label = "1"]
+"F" -- "B" [label = "6"]
+"F" -- "G" [label = "5"]
+"G" -- "B" [label = "2"]
+}
