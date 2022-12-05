@@ -53,6 +53,18 @@
   }
 }]]></component>
   <component name="RunManager">
+    <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="huce.View.MainApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="huce.View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="OOPProject" />
       <method v="2">
@@ -83,7 +95,7 @@
       <workItem from="1669817244013" duration="921000" />
       <workItem from="1669944998248" duration="436000" />
       <workItem from="1669954953568" duration="227000" />
-      <workItem from="1670283720460" duration="386000" />
+      <workItem from="1670283720460" duration="748000" />
     </task>
     <servers />
   </component>
