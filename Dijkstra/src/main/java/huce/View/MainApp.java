@@ -19,7 +19,7 @@ public class MainApp extends javax.swing.JFrame {
      */
     public MainApp() {
         initComponents();
-        var database = AppDB.getModel(AppDB.getConnectionString("sa", "12345",
+        var database = AppDB.getModel(AppDB.getConnectionString("maingocdoan", "1234",
                 "OOPPROJECT"));
         new OnloadController(database).controll(this);
         new OnGeneratePathController(database).controll(this);
