@@ -3,16 +3,10 @@ package huce.View;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import com.sun.source.tree.Tree;
-import huce.Algorithm.Node.Node;
 import huce.Controller.*;
 import huce.Model.AppDB;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import java.awt.*;
-import java.util.TreeMap;
 
 /**
  *
@@ -25,7 +19,7 @@ public class MainApp extends javax.swing.JFrame {
      */
     public MainApp() {
         initComponents();
-        var database = AppDB.getModel(AppDB.getConnectionString("sa", "12345",
+        var database = AppDB.getModel(AppDB.getConnectionString("maingocdoan", "1234",
                 "OOPPROJECT"));
         new OnloadController(database).controll(this);
         new OnGeneratePathController(database).controll(this);
@@ -235,7 +229,7 @@ public class MainApp extends javax.swing.JFrame {
                                 .addContainerGap(151, Short.MAX_VALUE))
         );
 
-        jPanel4.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 

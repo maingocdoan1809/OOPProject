@@ -1,9 +1,6 @@
 package huce.Controller;
 
-import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
-import com.mindfusion.drawing.Pen;
-import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
@@ -13,7 +10,6 @@ import huce.View.MainApp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.util.concurrent.CountDownLatch;
 
 public class OnGeneratePathController extends Controller{
 

@@ -21,7 +21,7 @@ public class AppDB implements AutoCloseable {
     }
     public static String getConnectionString(String username, String password,
                                              String dbName) {
-        return ("jdbc:sqlserver://localhost\\SQLEXPRESS;database=%s;encrypt=false;" +
+        return ("jdbc:sqlserver://localhost;database=%s;encrypt=false;" +
                 "user=%s;password=%s;trustServerCertificate=true").formatted(dbName,
                 username, password);
     }

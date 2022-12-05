@@ -31,9 +31,11 @@ public class OnClickChooseController extends Controller{
                     try {
                         super.database.toNodes(graph);
                         GraphView viewNodes = new GraphView(super.database.getNodes());
+                        viewNodes.setZoomFactor(75f);
                         viewNodes.drawGraph();
-                        viewNodes.setLocationRelativeTo(myapp);
-//                        myapp.jPreview.setDiagram( viewNodes.getDiagram() );
+                        myapp.jPanelPreview.removeAll();
+                        myapp.jPanelPreview.revalidate();
+                        myapp.jPanelPreview.repaint();
                         myapp.jPanelPreview.add(viewNodes.getContentPane());
                         var nodes = database.getNodes().keySet().toArray();
                         myapp.repaintRoot(nodes);
