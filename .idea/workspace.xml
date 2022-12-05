@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/OOPProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_microsoft_sqlserver_mssql_jdbc_11_2_1_jre18.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dijkstra/Dijkstra.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/jung-samples/edu/uci/ics/jung/samples/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/jung-samples/edu/uci/ics/jung/samples/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/blockmodel/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/blockmodel/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/cluster/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/cluster/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/filters/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/filters/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/flows/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/flows/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/generators/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/generators/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/generators/random/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/generators/random/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/metrics/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/metrics/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/scoring/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/scoring/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/scoring/util/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/scoring/util/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/shortestpath/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/shortestpath/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/transformation/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/transformation/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/util/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main/edu/uci/ics/jung/algorithms/util/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/event/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/event/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/util/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main1/edu/uci/ics/jung/graph/util/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main2/edu/uci/ics/jung/io/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main2/edu/uci/ics/jung/io/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/annotations/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/annotations/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/control/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/control/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/decorators/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/decorators/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/layout/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/layout/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/picking/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/picking/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/renderers/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/renderers/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/subLayout/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/subLayout/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/transform/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/transform/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/transform/shape/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/transform/shape/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/util/package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/out/production/main3/edu/uci/ics/jung/visualization/util/package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Algorithm/Dijkstra.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Algorithm/Dijkstra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Algorithm/Node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Algorithm/Node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/GraphvizFileFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/GraphvizFileFormatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/NoDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/NoDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/PathNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Exception/PathNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Graphviz/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Graphviz/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/AppDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/AppDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/GraphView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/GraphView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Algorithm/Dijkstra.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Algorithm/Dijkstra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Algorithm/Node/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Algorithm/Node/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/GraphvizFileFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/GraphvizFileFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/NoDataException.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/NoDataException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/PathNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Exception/PathNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Graphviz/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Graphviz/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Model/AppDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Model/AppDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/GraphView.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/GraphView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2HnFFwiTQQyUfOyFjKXXfo5RvRp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/From GITHUB/OOPProject&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="" />
+      <created>1668912848635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668912848635</updated>
+      <workItem from="1668912849287" duration="602000" />
+      <workItem from="1668913729029" duration="552000" />
+      <workItem from="1668915045601" duration="2327000" />
+      <workItem from="1668917614859" duration="341000" />
+      <workItem from="1668917973161" duration="81000" />
+      <workItem from="1669817244013" duration="921000" />
+      <workItem from="1669944998248" duration="436000" />
+      <workItem from="1669954953568" duration="227000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
