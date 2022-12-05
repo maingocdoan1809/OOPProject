@@ -1,0 +1,1 @@
+digraph p1 {"F" -> "B" [label = "10"]"F" -> "C" [label = "30"]"F" -> "A" [label = "50"]"C" -> "H" [label = "20"]"C" -> "D" [label = "60"]"F" -> "D" [label = "40"]"A" -> "B" [label = "20"]"A" -> "G" [label = "90"]"B" -> "E" [label = "50"]"E" -> "G" [label = "30"]"D" -> "G" [label = "50"]"H" -> "G" [label = "40"]}

@@ -1,0 +1,75 @@
+____________"7 nodes" graph ___________
+
+Đi từ F đến G (trọng số 90)
+F -> D -> G
+F -> B -> E -> G
+F -> C -> H -> G
+
+____________"8 nodes" graph___________
+
+Đi từ M đến Z (trọng số 16)
+M -> K -> Z
+M -> H -> Z
+M -> T -> Z
+M -> N -> K -> Z
+
+____________"9 nodes" graph___________
+
+1. Ha Noi đến Nghe An
+Ha Noi -> Thanh Hoa -> Nghe An
+Ha Noi -> Hoa Binh -> Nam Dinh -> Nghe An
+Ha Noi -> Son La -> Nam Dinh -> Nghe An
+
+
+2.Hai Phong -> Ha Tinh
+Hai Phong -> Thanh Hoa -> Ha Tinh
+Hai Phong -> Thai Binh -> Ha Tinh
+
+_____________"10 nodes" graph____________
+
+1. Nga đến Thai Lan (trọng số 300)
+Nga -> Viet Nam -> Thai Lan
+Nga -> Trung Quoc -> Thai Lan
+Nga -> Ukraina -> Trung Quoc -> Thai Lan
+Nga -> Ukraina -> My -> Nhat Ban -> Thai Lan
+
+2. Ukraina đến Viet Nam (trọng số 340)
+Ukraina -> Nga -> Viet Nam
+Ukraina -> Dai Loan -> Trieu Tien -> Viet Nam
+Ukraina -> My -> Nhat Ban -> Viet Nam
+
+_____________"11 nodes" graph______________
+
+1. M đến T (trọng số 11)
+M -> K -> T
+M -> N -> L -> I -> T
+
+2. D đến A (trọng số 14)
+D -> O -> A
+D -> L -> I -> A
+
+3. N đến Z (trọng số 18)
+N -> L -> Z
+N -> K -> I -> Z
+
+____________"12 nodes" graph_______________
+
+A đến E (trọng số 10)
+A -> L -> E 
+A -> T -> E
+A -> H -> X -> E
+A -> B -> V -> E
+
+
+
+
+
+
+
+
+
+
+
+
+
+

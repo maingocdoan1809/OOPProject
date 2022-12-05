@@ -40,9 +40,11 @@ public class OnChooseFileController extends Controller{
 
                             var nodes = database.getNodes().keySet().toArray();
                             GraphView viewNodes = new GraphView(super.database.getNodes());
+                            viewNodes.setZoomFactor(75f);
                             viewNodes.drawGraph();
-                            viewNodes.setLocationRelativeTo(myapp);
-                            //  myapp.jPreview.setDiagram( viewNodes.getDiagram() );
+                            myapp.jPanelPreview.removeAll();
+                            myapp.jPanelPreview.revalidate();
+                            myapp.jPanelPreview.repaint();
                             myapp.jPanelPreview.add(viewNodes.getContentPane());
                             myapp.repaintRoot(nodes);
                             myapp.repaintToList(nodes);
