@@ -7,6 +7,7 @@ import huce.Controller.*;
 import huce.Model.AppDB;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -228,8 +229,10 @@ public class MainApp extends javax.swing.JFrame {
                                 .addComponent(jBtnGenerate)
                                 .addContainerGap(151, Short.MAX_VALUE))
         );
+        jPanel4.setLayout(new CardLayout());
 
-        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+        JSplitPane slider = new JSplitPane();
+        jPanel4.add(slider);
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 
@@ -276,7 +279,7 @@ public class MainApp extends javax.swing.JFrame {
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel8.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel4.add(jPanel8);
+        slider.add(jPanel8, JSplitPane.LEFT);
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
@@ -290,7 +293,7 @@ public class MainApp extends javax.swing.JFrame {
         jPanelPreview.setLayout(new java.awt.CardLayout());
         jPanel9.add(jPanelPreview, java.awt.BorderLayout.CENTER);
 
-        jPanel4.add(jPanel9);
+        slider.add(jPanel9, JSplitPane.RIGHT);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
