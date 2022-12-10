@@ -8,10 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class OnChangeRootController extends Controller{
-    public OnChangeRootController(AppDB database) {
-        super(database);
-    }
-
 
     @Override
     public void controll(MainApp myapp) {

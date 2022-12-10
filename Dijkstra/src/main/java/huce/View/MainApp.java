@@ -4,32 +4,36 @@ package huce.View;/*
  */
 
 import huce.Controller.*;
+import huce.Exception.GraphvizFileFormatException;
+import huce.Exception.NoDataException;
 import huce.Model.AppDB;
+import huce.Model.Observer;
+import huce.Model.Subject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  *
  * @author Admin
  */
-public class MainApp extends javax.swing.JFrame {
+public class MainApp extends javax.swing.JFrame implements Subject {
 
     /**
      * Creates new form MainApp
      */
     public MainApp() {
         initComponents();
-        var database = AppDB.getModel(AppDB.getConnectionString("maingocdoan", "1234",
-                "OOPPROJECT"));
-        new OnloadController(database).controll(this);
-        new OnGeneratePathController(database).controll(this);
-        new OnClickChooseController(database).controll(this);
-        new OnClickBlockController(database).controll(this);
-        new OnRemoveBlockController(database).controll(this);
-        new OnChangeRootController(database).controll(this);
-        new OnChooseFileController(database).controll(this);
-        new OnChangeToController(database).controll(this);
+        new OnloadController().controll(this);
+        new OnGeneratePathController().controll(this);
+        new OnClickChooseController().controll(this);
+        new OnClickBlockController().controll(this);
+        new OnRemoveBlockController().controll(this);
+        new OnChangeRootController().controll(this);
+        new OnChooseFileController().controll(this);
+        new OnChangeToController().controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
@@ -416,5 +420,28 @@ public class MainApp extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelPreview;
     public javax.swing.JTable jTableBlock;
     public javax.swing.JTable jTestcaseTable;
+
+    @Override
+    public void update(Observer observer) {
+        try (FileInputStream fi =
+                     new FileInputStream( FileSelectorView.getFile())) {
+            var database = AppDB.getModel("");
+            database.toNodes( new String(fi.readAllBytes()) );
+            var nodes = database.getNodes().keySet().toArray();
+            GraphView viewNodes = new GraphView(database.getNodes());
+            viewNodes.setZoomFactor(75f);
+            viewNodes.drawGraph();
+            this.jPanelPreview.removeAll();
+            this.jPanelPreview.revalidate();
+            this.jPanelPreview.repaint();
+            this.jPanelPreview.add(viewNodes.getContentPane());
+            this.repaintRoot(nodes);
+            this.repaintToList(nodes);
+            this.repaintBlockList(nodes);
+        } catch (IOException | NoDataException |
+                 GraphvizFileFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
     // End of variables declaration
 }

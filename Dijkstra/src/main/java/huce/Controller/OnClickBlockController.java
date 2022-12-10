@@ -10,10 +10,6 @@ import java.awt.event.ActionEvent;
 
 public class OnClickBlockController extends Controller{
 
-    public OnClickBlockController(AppDB database) {
-        super(database);
-    }
-
     @Override
     public void controll(MainApp myapp) {
         myapp.jBtnOKBlock.addActionListener( (ActionEvent event) -> {

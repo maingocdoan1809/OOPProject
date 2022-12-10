@@ -10,10 +10,6 @@ import java.awt.event.ActionEvent;
 
 public class OnRemoveBlockController extends Controller{
 
-    public OnRemoveBlockController(AppDB database) {
-        super(database);
-    }
-
     @Override
     public void controll(MainApp myapp) {
         myapp.jBtnRemove.addActionListener(

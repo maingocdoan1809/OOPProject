@@ -13,9 +13,6 @@ import java.awt.event.ActionEvent;
 
 public class OnGeneratePathController extends Controller{
 
-    public OnGeneratePathController(AppDB database) {
-        super(database);
-    }
     @Override
     public void controll(MainApp myapp) {
         myapp.jBtnGenerate.addActionListener( (ActionEvent event) -> {

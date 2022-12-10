@@ -4,11 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="" />
+    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeRootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeRootController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeToController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeToController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChooseFileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChooseFileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnRemoveBlockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnRemoveBlockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,30 +72,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/From GITHUB/OOPProject/JDiagram.jar",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/From GITHUB/OOPProject/JDiagram.jar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="huce.View.MainApp" />
+      <module name="Dijkstra" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="huce.View.*" />
@@ -96,6 +138,7 @@
       <workItem from="1669944998248" duration="436000" />
       <workItem from="1669954953568" duration="227000" />
       <workItem from="1670283720460" duration="1767000" />
+      <workItem from="1670643023317" duration="2141000" />
     </task>
     <servers />
   </component>

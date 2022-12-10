@@ -11,9 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class OnClickChooseController extends Controller{
-    public OnClickChooseController(AppDB database) {
-        super(database);
-    }
     @Override
     public void controll(MainApp myapp) {
         myapp.jBtnChoose.addActionListener(
