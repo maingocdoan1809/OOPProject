@@ -4,41 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Model/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeRootController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChangeToController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnChooseFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickBlockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnClickChooseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnGeneratePathController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnRemoveBlockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/Controller/OnloadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/FileSelectorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/src/main/java/huce/View/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeRootController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeRootController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeToController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChangeToController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChooseFileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnChooseFileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickBlockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnClickChooseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnGeneratePathController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnRemoveBlockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnRemoveBlockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/Controller/OnloadController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/FileSelectorView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Dijkstra/target/classes/huce/View/MainApp.class" afterDir="false" />
-    </list>
+    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
