@@ -11,20 +11,16 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class FileSelectorView extends JFrame implements Observer {
-    private static File file = null;
     private Subject subject;
-    synchronized public static File getFile() {
-        return file;
-    }
+    JFileChooser fileChooser;
     public FileSelectorView() {
         super("Select a .dot file");
         JPanel mainPanel = new JPanel();
-        JFileChooser fileChooser = new JFileChooser() {
+        fileChooser = new JFileChooser() {
             @Override
             public void approveSelection() {
-                FileSelectorView.file = this.getSelectedFile();
-                notifySubject();
                 FileSelectorView.super.dispose();
+                notifySubject();
             }
             @Override
             public void cancelSelection() {
@@ -50,7 +46,9 @@ public class FileSelectorView extends JFrame implements Observer {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
-
+    public File getSelectedFile() {
+        return this.fileChooser.getSelectedFile();
+    }
     @Override
     public void observe(Subject subject) {
         this.subject = subject;

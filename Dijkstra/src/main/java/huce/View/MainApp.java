@@ -424,7 +424,7 @@ public class MainApp extends javax.swing.JFrame implements Subject {
     @Override
     public void update(Observer observer) {
         try (FileInputStream fi =
-                     new FileInputStream( FileSelectorView.getFile())) {
+                     new FileInputStream( ((FileSelectorView) observer).getSelectedFile() )) {
             var database = AppDB.getModel("");
             database.toNodes( new String(fi.readAllBytes()) );
             var nodes = database.getNodes().keySet().toArray();
