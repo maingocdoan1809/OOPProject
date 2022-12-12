@@ -267,7 +267,8 @@ public class GraphView extends JFrame {
 
     }
     public void clickReload() {
-        this.jBtnReload.doClick();
+        this.jBtnReload.getModel().setPressed(true);
+        this.jBtnReload.getModel().setPressed(false);
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
         this.jBtnReload.addActionListener(e -> {
