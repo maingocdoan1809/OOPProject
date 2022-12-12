@@ -6,8 +6,6 @@ import huce.Model.Subject;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 
 public class FileSelectorView extends JFrame implements Observer {

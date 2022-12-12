@@ -7,12 +7,12 @@ import java.util.function.Consumer;
 
 
 public class Node implements Comparable<Node> {
-    private String name;
+    private final String name;
     private int estimate;
     /**
      * the adjacentNodes between {@code this}
      */
-    private HashMap<Node, Integer> adjacentNodes;
+    private final HashMap<Node, Integer> adjacentNodes;
     private Set<Node> blocked;
     public ArrayList<Node> pre;
     public Node(String name, int estimate) {
@@ -112,4 +112,3 @@ public class Node implements Comparable<Node> {
         return "[" + this.name + ", " + estimate + "]";
     }
 }
-

@@ -7,23 +7,38 @@ import com.mindfusion.drawing.*;
 import huce.Algorithm.Node.Node;
 
 import javax.swing.*;
+import javax.swing.Action;
 import java.awt.*;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Rectangle2D;
-import java.util.PriorityQueue;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class GraphView extends JFrame {
-    TreeMap<String, DiagramNode> diagramNodes;
-    TreeMap<String, Node> nodes;
-    Diagram diagram;
-    DiagramView diagramView;
+    private TreeMap<String, DiagramNode> diagramNodes;
+    private TreeMap<String, Node> nodes;
+    private Diagram diagram;
+    private DiagramView diagramView;
     private javax.swing.JButton jBtnAnelLayout;
     private javax.swing.JButton jBtnCirLayout;
     private javax.swing.JButton jBtnReload;
     private javax.swing.JButton jBtnSpringLayout;
     private javax.swing.JButton jBtnStart;
+    private JComboBox<String> jBoxColorStart;
+    private JComboBox<String> jBoxColorTo;
+    private JComboBox<String> jBoxColorBlock;
+    public static HashMap<String, Brush> brushes = new HashMap<String, Brush>( Map.of(
+            "Default", Brushes.BlueViolet,
+            "Red", Brushes.Red,
+            "Yellow", Brushes.Yellow,
+            "Yellow Green", Brushes.YellowGreen,
+            "Grey", Brushes.Gray,
+            "Blue", Brushes.Blue,
+            "Snow", Brushes.Snow,
+            "ForestGreen", Brushes.ForestGreen,
+            "Light Pink", Brushes.LightPink
+    ) );
     static private TreeMap<String, DiagramNode> toDiagramNodes(Set<String> nodes,
                                                                Diagram diagram) {
         TreeMap<String, DiagramNode> diagramNodes = new TreeMap<>();
@@ -60,8 +75,13 @@ public class GraphView extends JFrame {
 
     }
     public void highlightNode(Node src, Brush color) {
-        DiagramNode from = this.diagramNodes.get(src.getName());
-        from.setBrush(color);
+        highlightNode( src.getName() , color );
+    }
+    public void highlightNode(String srcName, Brush color) {
+        DiagramNode from = this.diagramNodes.get(srcName);
+        if ( from != null ) {
+            from.setBrush(color);
+        }
     }
     private static void diagramSetUp(Diagram diagram, AbstractLayout layout) {
         layout.arrange(diagram);
@@ -104,23 +124,19 @@ public class GraphView extends JFrame {
         thread.start();
     }
 
-    private void initComponents(TreeMap<String, Node> nodes) {
-
-
+    private void initComponents() {
         javax.swing.JPanel jPanel1 = new javax.swing.JPanel();
-
-        this.nodes = nodes;
-        this.diagram = new Diagram();
-         this.diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
-        this.diagramView = new DiagramView(diagram);
+        JPanel jMainPanel = new JPanel();
+        jMainPanel.setLayout(new GridLayout(2, 0));
+        JPanel jBoxPanel = new JPanel();
+        jMainPanel.add(jPanel1);
+        jMainPanel.add(jBoxPanel);
         javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane(diagramView);
         CircularLayout circularLayoutlayout = new CircularLayout();
         circularLayoutlayout.setRadius(45f);
         diagramSetUp(diagram, circularLayoutlayout);
         jBtnReload = new javax.swing.JButton();
         jBtnStart = new javax.swing.JButton();
-        jBtnReload.setEnabled(false);
-        jBtnStart.setEnabled(false);
         jBtnAnelLayout = new javax.swing.JButton();
         jBtnCirLayout = new javax.swing.JButton();
         jBtnSpringLayout = new javax.swing.JButton();
@@ -134,7 +150,7 @@ public class GraphView extends JFrame {
 
         diagramView.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         diagramView.setHorizontalResizeCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
-        diagramView.setMaximumSize(new java.awt.Dimension(3276, 3276));
+        diagramView.setMaximumSize(new java.awt.Dimension(3000, 3000));
         diagramView.setMinimumSize(new java.awt.Dimension(500, 500));
         diagramView.setName(""); // NOI18N
         diagramView.setPreferredSize(new java.awt.Dimension(500, 500));
@@ -152,7 +168,7 @@ public class GraphView extends JFrame {
 
         jScrollPane1.setViewportView(diagramView);
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
-
+        jBoxPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
         jBtnReload.setText("Reload");
         jPanel1.add(jBtnReload);
         jBtnReload.setBackground(new java.awt.Color(224, 20, 76));
@@ -177,35 +193,44 @@ public class GraphView extends JFrame {
         jBtnSpringLayout.setForeground(new Color(255, 255, 255));
         jPanel1.add(jBtnSpringLayout);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200,
-                                Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, 750,
-                                        Short.MAX_VALUE)
-                                .addGap(0, 0, 0)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+
+        JButton jBtnZoomIn = new JButton("Zoom in");
+        JButton jBtnZoomOut = new JButton("Zoom out");
+        jBtnZoomIn.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnZoomIn.setForeground(new Color(255, 255, 255));
+        jBtnZoomOut.setBackground(new java.awt.Color(224, 20, 76));
+        jBtnZoomOut.setForeground(new Color(255, 255, 255));
+        jBtnZoomIn.addActionListener((evt) -> {
+            this.diagramView.setZoomFactor( diagramView.getZoomFactor() + 10 );
+        });
+        jBtnZoomOut.addActionListener((evt) -> {
+            this.diagramView.setZoomFactor( diagramView.getZoomFactor() - 10 );
+        });
+        jPanel1.add(jBtnZoomIn);
+        jPanel1.add(jBtnZoomOut);
+        jBoxPanel.add(new JLabel("From Color: "));
+
+
+        this.jBoxColorStart = new JComboBox<>(new DefaultComboBoxModel<>(
+                new String[]{"Default","Red","Yellow","Yellow Green","Grey","Blue","Snow","ForestGreen","Light Pink"}
+        ));
+        jBoxPanel.add(this.jBoxColorStart);
+        jBoxPanel.add(new JLabel("To Color: "));
+        this.jBoxColorTo = new JComboBox<>(new DefaultComboBoxModel<>(
+                new String[]{"Default","Red","Yellow","Yellow Green","Grey","Blue","Snow","ForestGreen","Light Pink"}
+        ));
+        jBoxPanel.add(this.jBoxColorTo);
+        jBoxPanel.add(new JLabel("Block Color: "));
+        this.jBoxColorBlock = new JComboBox<>(new DefaultComboBoxModel<>(
+                new String[]{"Default","Red","Yellow","Yellow Green","Grey","Blue","Snow","ForestGreen","Light Pink"}
+        ));
+        jBoxPanel.add(this.jBoxColorBlock);
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(jScrollPane1, BorderLayout.CENTER);
+        getContentPane().add(jMainPanel, BorderLayout.SOUTH);
         diagramView.setBehavior(Behavior.PanAndModify);
         diagramView.setZoomFactor(110f);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        pack();
-    }// </editor-fold>
-    public void setZoomFactor(float factor) {
-        this.diagramView.setZoomFactor(factor);
-    }
-    public GraphView(TreeMap<String, Node> nodes) {
-        super("Graphic illustration for Dijkstra Algorithm. Author: Mai Ngoc Doan");
-        initComponents(nodes);
         this.jBtnSpringLayout.addActionListener( (e) -> {
             SpringLayout layout = new SpringLayout();
             layout.setNodeDistance(60);
@@ -224,32 +249,27 @@ public class GraphView extends JFrame {
             annealLayout.setLinkLengthFactor(0.06);
             annealLayout.arrange(diagram);
         } );
+        this.setLocationRelativeTo(null);
+        pack();
+    }// </editor-fold>
+    public void setZoomFactor(float factor) {
+        this.diagramView.setZoomFactor(factor);
+    }
+    public GraphView(TreeMap<String, Node> nodes) {
+        this.nodes = nodes;
+        this.diagram = new Diagram();
+        this.diagramNodes = toDiagramNodes(nodes.keySet(), diagram);
+        this.diagramView = new DiagramView(diagram);
+        initComponents();
+    }
+    public void addStartEvent(ActionListener event) {
+        this.jBtnStart.addActionListener(event);
 
     }
-    public void addStartEvent(PriorityQueue<TreeSet<Node>> paths) {
-        this.jBtnStart.setEnabled(true);
-        this.jBtnStart.addActionListener(e -> {
-            Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
-                    Pens.OrangeRed};
-            Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
-                    Brushes.OrangeRed};
-            // no more than 3 paths will be printed:
-            Thread drawPaths = new Thread( ()-> {
-                int index = 0;
-                for ( var path : paths ) {
-                    if (index == 3) {
-                        break;
-                    }
-                    drawPath(path,pens[index], brushes[index], 5 - index );
-                    index ++;
-                }
-            } );
-            drawPaths.start();
-        });
-
+    public void clickReload() {
+        this.jBtnReload.doClick();
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
-        this.jBtnReload.setEnabled(true);
         this.jBtnReload.addActionListener(e -> {
             for (var path : paths) {
                 var pathArr = path.toArray();
@@ -272,5 +292,36 @@ public class GraphView extends JFrame {
                 }
             }
         });
+    }
+    public void addColorChooser(JComboBox<String> src, JComboBox<String> to) {
+        this.jBoxColorStart.addActionListener((evt) -> {
+            String srcNode = (String) src.getSelectedItem();
+            highlightNode(srcNode,
+                    GraphView.brushes.get( (String) this.jBoxColorStart.getSelectedItem()));
+        });
+        this.jBoxColorTo.addActionListener((evt) -> {
+            String toNode = (String) to.getSelectedItem();
+            highlightNode(toNode,
+                    GraphView.brushes.get( (String) this.jBoxColorTo.getSelectedItem()));
+        });
+        this.jBoxColorBlock.addActionListener((evt) -> {
+            String srcNode = (String) src.getSelectedItem();
+            for ( var blockingNode : nodes.get(srcNode).getBlocked() ) {
+                highlightNode(blockingNode,
+                        GraphView.brushes.get( (String) this.jBoxColorBlock.getSelectedItem()));
+            }
+        });
+    }
+    public String getRootColor() {
+        return (String) this.jBoxColorStart.getSelectedItem();
+    }
+    public String getToColor() {
+        return (String) this.jBoxColorTo.getSelectedItem();
+    }
+    public String getBlockColor() {
+        return (String) this.jBoxColorBlock.getSelectedItem();
+    }
+    public DiagramView getDiagramView() {
+        return this.diagramView;
     }
 }

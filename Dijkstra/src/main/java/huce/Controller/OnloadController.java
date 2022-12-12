@@ -1,6 +1,5 @@
 package huce.Controller;
 
-import huce.Model.AppDB;
 import huce.View.MainApp;
 
 import javax.swing.*;
