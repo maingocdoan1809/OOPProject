@@ -1,6 +1,5 @@
 package huce.Controller;
 
-import huce.Model.AppDB;
 import huce.View.MainApp;
 
 import javax.swing.*;
@@ -9,10 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class OnloadController extends Controller {
-    public OnloadController(AppDB database) {
-        super(database);
-    }
-
 
     @Override
     public void controll(MainApp myapp) {

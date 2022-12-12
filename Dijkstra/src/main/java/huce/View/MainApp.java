@@ -3,32 +3,39 @@ package huce.View;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import com.mindfusion.common.Pair;
+import com.mindfusion.diagramming.DiagramView;
+import huce.Algorithm.Node.Node;
 import huce.Controller.*;
+import huce.Exception.GraphvizFileFormatException;
+import huce.Exception.NoDataException;
 import huce.Model.AppDB;
+import huce.Model.Observer;
+import huce.Model.Subject;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  *
  * @author Admin
  */
-public class MainApp extends javax.swing.JFrame {
+public class MainApp extends javax.swing.JFrame implements Subject {
 
     /**
      * Creates new form MainApp
      */
     public MainApp() {
         initComponents();
-        var database = AppDB.getModel(AppDB.getConnectionString("maingocdoan", "1234",
-                "OOPPROJECT"));
-        new OnloadController(database).controll(this);
-        new OnGeneratePathController(database).controll(this);
-        new OnClickChooseController(database).controll(this);
-        new OnClickBlockController(database).controll(this);
-        new OnRemoveBlockController(database).controll(this);
-        new OnChangeRootController(database).controll(this);
-        new OnChooseFileController(database).controll(this);
-        new OnChangeToController(database).controll(this);
+        new OnloadController().controll(this);
+        new OnClickChooseController().controll(this);
+        new OnChooseFileController().controll(this);
+        new OnChangeToController().controll(this);
+        new OnChangeRootController().controll(this);
+        new OnClickBlockController().controll(this);
+        new OnRemoveBlockController().controll(this);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
@@ -52,7 +59,6 @@ public class MainApp extends javax.swing.JFrame {
         javax.swing.JPanel jPanel13 = new javax.swing.JPanel();
         jBtnOKBlock = new javax.swing.JButton();
         jBtnRemove = new javax.swing.JButton();
-        jBtnGenerate = new javax.swing.JButton();
         javax.swing.JPanel jPanel4 = new javax.swing.JPanel();
         javax.swing.JPanel jPanel8 = new javax.swing.JPanel();
         javax.swing.JPanel jPanel10 = new javax.swing.JPanel();
@@ -160,7 +166,7 @@ public class MainApp extends javax.swing.JFrame {
                         "Name"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            final boolean[] canEdit = new boolean [] {
                     false
             };
 
@@ -191,9 +197,6 @@ public class MainApp extends javax.swing.JFrame {
 
         jPanel12.add(jPanel13, java.awt.BorderLayout.PAGE_END);
 
-        jBtnGenerate.setBackground(new java.awt.Color(178, 178, 178));
-        jBtnGenerate.setForeground(new java.awt.Color(0, 0, 0));
-        jBtnGenerate.setText("Generate Path");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -207,7 +210,7 @@ public class MainApp extends javax.swing.JFrame {
                                                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                                        .addComponent(jBtnGenerate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                        ))
                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                                 .addGap(15, 15, 15)
                                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -225,11 +228,12 @@ public class MainApp extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82)
-                                .addComponent(jBtnGenerate)
                                 .addContainerGap(151, Short.MAX_VALUE))
         );
+        jPanel4.setLayout(new CardLayout());
 
-        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+        JSplitPane slider = new JSplitPane();
+        jPanel4.add(slider);
 
         jPanel8.setLayout(new java.awt.BorderLayout());
 
@@ -250,7 +254,7 @@ public class MainApp extends javax.swing.JFrame {
                         "ID", "Name", "Graph"
                 }
         ) {
-            boolean[] canEdit = new boolean [] {
+            final boolean[] canEdit = new boolean [] {
                     false, true, true
             };
 
@@ -276,7 +280,7 @@ public class MainApp extends javax.swing.JFrame {
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel8.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel4.add(jPanel8);
+        slider.add(jPanel8, JSplitPane.LEFT);
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
@@ -290,7 +294,7 @@ public class MainApp extends javax.swing.JFrame {
         jPanelPreview.setLayout(new java.awt.CardLayout());
         jPanel9.add(jPanelPreview, java.awt.BorderLayout.CENTER);
 
-        jPanel4.add(jPanel9);
+        slider.add(jPanel9, JSplitPane.RIGHT);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -355,9 +359,10 @@ public class MainApp extends javax.swing.JFrame {
 
     public void repaintRoot(Object[] nodeName) {
         this.jListRootNode.removeAllItems();
-          for ( var node : nodeName ) {
+        for ( var node : nodeName ) {
               this.jListRootNode.addItem( (String) node);
-          }
+        }
+
     }
     public  void repaintToList(Object[] nodeName) {
         this.jListToNode.removeAllItems();
@@ -377,7 +382,7 @@ public class MainApp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -401,7 +406,6 @@ public class MainApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify
     public javax.swing.JButton jBtnChoose;
-    public javax.swing.JButton jBtnGenerate;
     public javax.swing.JButton jBtnOKBlock;
     public javax.swing.JButton jBtnRemove;
     public javax.swing.JComboBox<String> jListRootNode;
@@ -413,5 +417,49 @@ public class MainApp extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelPreview;
     public javax.swing.JTable jTableBlock;
     public javax.swing.JTable jTestcaseTable;
+    public GraphView graphView = null;
+    public Pair<Node, Node> rootAndTo = new Pair<>(null, null);
+    @Override
+    public void update(Observer observer) {
+        try (FileInputStream fi =
+                     new FileInputStream( ((FileSelectorView) observer).getSelectedFile() )) {
+            createGraph(new String(fi.readAllBytes()) );
+        } catch (IOException | NoDataException | GraphvizFileFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void setRootAndTo(Node root, Node to) {
+        if ( root != null ) {
+            rootAndTo.setFirst(root);
+        }
+        if ( to != null ) {
+            rootAndTo.setSecond(to);
+        }
+    }
+    public void createGraph(String graphData) throws NoDataException, GraphvizFileFormatException {
+        var database = AppDB.getModel("");
+        database.toNodes( graphData);
+        var nodes = database.getNodes().keySet().toArray();
+
+        GraphView viewNodes = new GraphView(database.getNodes());
+        viewNodes.setZoomFactor(75f);
+        viewNodes.drawGraph();
+        this.jPanelPreview.removeAll();
+        this.jPanelPreview.revalidate();
+        this.jPanelPreview.repaint();
+        this.jPanelPreview.add(viewNodes.getContentPane());
+        this.repaintRoot(nodes);
+        this.repaintToList(nodes);
+        this.repaintBlockList(nodes);
+        String selectedRoot = (String) this.jListRootNode.getSelectedItem();
+        String selectedTo = (String) this.jListToNode.getSelectedItem();
+        setRootAndTo(database.getNodes().get( selectedRoot ),
+                database.getNodes().get( selectedTo ) );
+        this.graphView = viewNodes;
+        this.graphView.highlightNode(selectedRoot, GraphView.brushes.get("Default"));
+        this.graphView.highlightNode(selectedTo, GraphView.brushes.get("Default"));
+        this.graphView.addColorChooser(this.jListRootNode, jListToNode);
+        new OnGeneratePathController().controll(this);
+    }
     // End of variables declaration
 }

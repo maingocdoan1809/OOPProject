@@ -1,24 +1,25 @@
 package huce.Controller;
 
+import com.mindfusion.drawing.Brush;
 import com.mindfusion.drawing.Brushes;
+import com.mindfusion.drawing.Pen;
+import com.mindfusion.drawing.Pens;
 import huce.Algorithm.Dijkstra;
 import huce.Algorithm.Node.Node;
 import huce.Exception.PathNotFoundException;
-import huce.Model.AppDB;
 import huce.View.GraphView;
 import huce.View.MainApp;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OnGeneratePathController extends Controller{
 
-    public OnGeneratePathController(AppDB database) {
-        super(database);
-    }
     @Override
     public void controll(MainApp myapp) {
-        myapp.jBtnGenerate.addActionListener( (ActionEvent event) -> {
+        myapp.graphView.addStartEvent( (evt) -> {
             String selectedStartNode = (String) myapp.jListRootNode.getSelectedItem();
             String selectedEndNode = (String) myapp.jListToNode.getSelectedItem();
             var nodes = super.database.getNodes();
@@ -27,7 +28,7 @@ public class OnGeneratePathController extends Controller{
             Dijkstra.setAsRoot(start);
             try {
                 Dijkstra.travel( start, end );
-                GraphView viewGraph = new GraphView(nodes);
+                GraphView viewGraph = myapp.graphView;
                 viewGraph.drawGraph();
                 var paths = Dijkstra.extractPaths(end);
                 viewGraph.highlightNode(start, Brushes.BlueViolet);
@@ -36,18 +37,29 @@ public class OnGeneratePathController extends Controller{
                     var blockedNodes = start.getBlocked();
                     for ( Node blockedNode : blockedNodes ) {
                         viewGraph.highlightNode(blockedNode, Brushes.Red);
-                        try {
-                            Thread.sleep(500);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
                     }
                 });
                 drawBlockNodes.start();
-                viewGraph.addStartEvent(paths);
+
+
+                // no more than 3 paths will be printed:
+                Thread drawPaths = new Thread( ()-> {
+                    Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
+                            Pens.OrangeRed};
+                    Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
+                            Brushes.OrangeRed};
+                    int index = 0;
+                    for ( var path : paths ) {
+                        if (index == 3) {
+                            break;
+                        }
+                        viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
+                        index ++;
+                    }
+                } );
                 viewGraph.addReloadEvent(paths);
-                viewGraph.setLocationRelativeTo(myapp);
-                viewGraph.setVisible(true);
+                drawPaths.start();
+
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
             }

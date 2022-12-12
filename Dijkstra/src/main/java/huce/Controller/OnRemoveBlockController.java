@@ -1,7 +1,6 @@
 package huce.Controller;
 
 import huce.Algorithm.Node.Node;
-import huce.Model.AppDB;
 import huce.View.MainApp;
 
 import javax.swing.*;
@@ -9,10 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 
 public class OnRemoveBlockController extends Controller{
-
-    public OnRemoveBlockController(AppDB database) {
-        super(database);
-    }
 
     @Override
     public void controll(MainApp myapp) {
@@ -35,6 +30,7 @@ public class OnRemoveBlockController extends Controller{
                         Node src = nodes.get(srcName);
                         Node blockedNode = nodes.get(blockName);
                         src.removeBlock(blockedNode);
+                        myapp.graphView.highlightNode(blockedNode, null);
                         JOptionPane.showMessageDialog(myapp, "Removed " + blockName +
                                 " from " + srcName + "'s block list");
                         if ( tableModel.getRowCount() == 0 ) {
