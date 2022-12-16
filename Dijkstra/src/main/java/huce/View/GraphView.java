@@ -90,7 +90,6 @@ public class GraphView extends JFrame {
     }
     synchronized public void drawPath(TreeSet<Node> path, Pen colorPen,
                                       Brush colorBrush, int layer) {
-        Thread thread = new Thread(() -> {
             var pathArr = path.toArray();
             for ( int index = 0; index < pathArr.length - 1; index ++ ) {
                 try {
@@ -120,8 +119,6 @@ public class GraphView extends JFrame {
                     }
                 }
             }
-        });
-        thread.start();
     }
 
     private void initComponents() {
@@ -157,6 +154,8 @@ public class GraphView extends JFrame {
         diagramView.setBehavior(Behavior.PanAndModify);
         javax.swing.GroupLayout diagramViewLayout = new javax.swing.GroupLayout(diagramView);
         diagramView.setLayout(diagramViewLayout);
+        diagram.setAllowSplitLinks(false);
+        diagram.setAllowLinksRepeat(false);
         diagramViewLayout.setHorizontalGroup(
                 diagramViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 3780, Short.MAX_VALUE)
@@ -267,8 +266,7 @@ public class GraphView extends JFrame {
 
     }
     public void clickReload() {
-        this.jBtnReload.getModel().setPressed(true);
-        this.jBtnReload.getModel().setPressed(false);
+        this.jBtnReload.doClick(0);
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
         this.jBtnReload.addActionListener(e -> {

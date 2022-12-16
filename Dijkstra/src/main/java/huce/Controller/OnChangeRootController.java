@@ -25,21 +25,8 @@ public class OnChangeRootController extends Controller{
                         myapp.graphView.highlightNode(myapp.rootAndTo.getFirst(), null);
                         myapp.setRootAndTo(database.getNodes().get( (String) myapp.jListRootNode.getSelectedItem() ),
                                 database.getNodes().get( (String) myapp.jListToNode.getSelectedItem() ));
-                        myapp.graphView.clickReload();
-                        String selectedRoot =
-                                (String) myapp.jListRootNode.getSelectedItem();
-                        var color =
-                                GraphView.brushes.get( myapp.graphView.getRootColor() );
+                        myapp.clickReload();
 
-                        String selectedTo =
-                                (String) myapp.jListToNode.getSelectedItem();
-                        var colorTo =
-                                GraphView.brushes.get( myapp.graphView.getToColor() );
-                        myapp.graphView.highlightNode( selectedTo,
-                                colorTo);
-
-                        myapp.graphView.highlightNode( selectedRoot,
-                                 color);
                     }
                     for (Node node : nodes.values()) {
                         node.resetBlockingNodes();

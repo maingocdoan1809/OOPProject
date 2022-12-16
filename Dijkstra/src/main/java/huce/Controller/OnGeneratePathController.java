@@ -29,6 +29,7 @@ public class OnGeneratePathController extends Controller{
             try {
                 Dijkstra.travel( start, end );
                 GraphView viewGraph = myapp.graphView;
+                myapp.clickReload();
                 viewGraph.drawGraph();
                 var paths = Dijkstra.extractPaths(end);
                 Thread drawBlockNodes = new Thread(()-> {
@@ -47,22 +48,30 @@ public class OnGeneratePathController extends Controller{
                     Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
                             Brushes.OrangeRed};
                     int index = 0;
+                    myapp.jResultText.setText("Các cung đường có thể đi: ");
                     for ( var path : paths ) {
                         if (index == 3) {
                             break;
                         }
                         viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
                         index ++;
+                        myapp.jResultText.setText( myapp.jResultText.getText() +
+                                "\nGraph[" + index +"]: " + Dijkstra.getPathString(path) +
+                                "\n" );
                     }
+                    myapp.jResultText.setText( myapp.jResultText.getText() + "\nTổng " +
+                            "chi " +
+                            "phí: " + end.getEstimate());
+                    Dijkstra.reset(nodes);
                 } );
+
                 viewGraph.addReloadEvent(paths);
                 drawPaths.start();
 
             } catch (PathNotFoundException err) {
                 JOptionPane.showMessageDialog(myapp, err.getMessage());
-            }
-            finally {
                 Dijkstra.reset(nodes);
+
             }
         } );
     }

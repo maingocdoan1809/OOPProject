@@ -62,6 +62,15 @@ public class Dijkstra {
             getPath(preNode, paths, newPath);
         }
     }
+    public static String getPathString(TreeSet<Node> path) {
+        int i = 1;
+        StringBuffer buffer = new StringBuffer();
+        for (var node : path) {
+            buffer.append(node.getName() + " => ");
+        }
+        buffer.setLength(buffer.length() - 4);
+        return  buffer.toString();
+    }
     public static PriorityQueue<TreeSet<Node>> extractPaths(Node dest) {
         PriorityQueue<TreeSet<Node>> paths = new PriorityQueue<>((o1, o2) -> {
             if (o1.size() > o2.size()) {
@@ -91,4 +100,3 @@ public class Dijkstra {
         root.resetEstimate();
     }
 }
-
