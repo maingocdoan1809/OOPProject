@@ -30,12 +30,14 @@ public class OnGeneratePathController extends Controller{
                 Dijkstra.travel( start, end );
                 GraphView viewGraph = myapp.graphView;
                 myapp.clickReload();
-                viewGraph.drawGraph();
                 var paths = Dijkstra.extractPaths(end);
                 Thread drawBlockNodes = new Thread(()-> {
                     var blockedNodes = start.getBlocked();
+                    var blockColor = myapp.graphView.getBlockColor();
                     for ( Node blockedNode : blockedNodes ) {
-                        viewGraph.highlightNode(blockedNode, Brushes.Red);
+
+                        viewGraph.highlightNode(blockedNode,
+                                GraphView.brushes.get(blockColor) );
                     }
                 });
                 drawBlockNodes.start();

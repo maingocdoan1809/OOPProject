@@ -154,8 +154,6 @@ public class GraphView extends JFrame {
         diagramView.setBehavior(Behavior.PanAndModify);
         javax.swing.GroupLayout diagramViewLayout = new javax.swing.GroupLayout(diagramView);
         diagramView.setLayout(diagramViewLayout);
-        diagram.setAllowSplitLinks(false);
-        diagram.setAllowLinksRepeat(false);
         diagramViewLayout.setHorizontalGroup(
                 diagramViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 3780, Short.MAX_VALUE)
@@ -227,7 +225,6 @@ public class GraphView extends JFrame {
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(jScrollPane1, BorderLayout.CENTER);
         getContentPane().add(jMainPanel, BorderLayout.SOUTH);
-        diagramView.setBehavior(Behavior.PanAndModify);
         diagramView.setZoomFactor(110f);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.jBtnSpringLayout.addActionListener( (e) -> {
@@ -248,6 +245,9 @@ public class GraphView extends JFrame {
             annealLayout.setLinkLengthFactor(0.06);
             annealLayout.arrange(diagram);
         } );
+        diagram.setAutoSnapLinks(true);
+        diagram.setAllowSplitLinks(false);
+        diagramView.setAllowLinkCursor(new Cursor(Cursor.MOVE_CURSOR));
         this.setLocationRelativeTo(null);
         pack();
     }// </editor-fold>
@@ -266,6 +266,7 @@ public class GraphView extends JFrame {
 
     }
     public void clickReload() {
+
         this.jBtnReload.doClick(0);
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
@@ -279,6 +280,7 @@ public class GraphView extends JFrame {
                     if ( index < path.size() - 2  ) {
                         diagramNodes.get(preNode).setBrush(null);
                     }
+
                     var links = currDigNode.getOutgoingLinks();
                     for ( DiagramLink link : links ) {
                         if ( link.getDestination() == diagramNodes.get(preNode)) {
@@ -290,6 +292,7 @@ public class GraphView extends JFrame {
                     }
                 }
             }
+
         });
     }
     public void addColorChooser(JComboBox<String> src, JComboBox<String> to) {

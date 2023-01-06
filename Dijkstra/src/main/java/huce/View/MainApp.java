@@ -482,6 +482,7 @@ public class MainApp extends javax.swing.JFrame implements Subject {
                 GraphView.brushes.get( this.graphView.getRootColor() );
         String selectedTo =
                 (String) this.jListToNode.getSelectedItem();
+
         var colorTo =
                 GraphView.brushes.get( this.graphView.getToColor() );
         this.graphView.highlightNode( selectedTo,
@@ -489,6 +490,8 @@ public class MainApp extends javax.swing.JFrame implements Subject {
 
         this.graphView.highlightNode( selectedRoot,
                 color);
+//        var colorBlock = GraphView.brushes.get( this.graphView.getBlockColor() );
+//        for ( var blocknode : this.jTableBlock.getModel().getValueAt(0) )
         this.jResultText.setText("Nhóm 1");
     }
 }
