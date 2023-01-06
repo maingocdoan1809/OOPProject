@@ -292,7 +292,6 @@ public class GraphView extends JFrame {
                     }
                 }
             }
-
         });
     }
     public void addColorChooser(JComboBox<String> src, JComboBox<String> to) {

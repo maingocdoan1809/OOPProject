@@ -11,9 +11,6 @@ import huce.View.GraphView;
 import huce.View.MainApp;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.util.HashMap;
-import java.util.Map;
 
 public class OnGeneratePathController extends Controller{
 
@@ -35,7 +32,6 @@ public class OnGeneratePathController extends Controller{
                     var blockedNodes = start.getBlocked();
                     var blockColor = myapp.graphView.getBlockColor();
                     for ( Node blockedNode : blockedNodes ) {
-
                         viewGraph.highlightNode(blockedNode,
                                 GraphView.brushes.get(blockColor) );
                     }

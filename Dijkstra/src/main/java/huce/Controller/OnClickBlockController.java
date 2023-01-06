@@ -40,7 +40,6 @@ public class OnClickBlockController extends Controller{
                 JOptionPane.showMessageDialog(myapp, "Cannot block " + srcNode + " to " +
                         "itself.");
             }
-            myapp.graphView.clickReload();
         } );
     }
 }
