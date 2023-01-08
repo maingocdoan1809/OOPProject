@@ -90,7 +90,6 @@ public class GraphView extends JFrame {
     }
     synchronized public void drawPath(TreeSet<Node> path, Pen colorPen,
                                       Brush colorBrush, int layer) {
-        Thread thread = new Thread(() -> {
             var pathArr = path.toArray();
             for ( int index = 0; index < pathArr.length - 1; index ++ ) {
                 try {
@@ -120,8 +119,6 @@ public class GraphView extends JFrame {
                     }
                 }
             }
-        });
-        thread.start();
     }
 
     private void initComponents() {
@@ -228,7 +225,6 @@ public class GraphView extends JFrame {
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(jScrollPane1, BorderLayout.CENTER);
         getContentPane().add(jMainPanel, BorderLayout.SOUTH);
-        diagramView.setBehavior(Behavior.PanAndModify);
         diagramView.setZoomFactor(110f);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.jBtnSpringLayout.addActionListener( (e) -> {
@@ -249,6 +245,9 @@ public class GraphView extends JFrame {
             annealLayout.setLinkLengthFactor(0.06);
             annealLayout.arrange(diagram);
         } );
+        diagram.setAutoSnapLinks(true);
+        diagram.setAllowSplitLinks(false);
+        diagramView.setAllowLinkCursor(new Cursor(Cursor.MOVE_CURSOR));
         this.setLocationRelativeTo(null);
         pack();
     }// </editor-fold>
@@ -267,8 +266,8 @@ public class GraphView extends JFrame {
 
     }
     public void clickReload() {
-        this.jBtnReload.getModel().setPressed(true);
-        this.jBtnReload.getModel().setPressed(false);
+
+        this.jBtnReload.doClick(0);
     }
     public void addReloadEvent(PriorityQueue<TreeSet<Node>> paths) {
         this.jBtnReload.addActionListener(e -> {
@@ -281,6 +280,7 @@ public class GraphView extends JFrame {
                     if ( index < path.size() - 2  ) {
                         diagramNodes.get(preNode).setBrush(null);
                     }
+
                     var links = currDigNode.getOutgoingLinks();
                     for ( DiagramLink link : links ) {
                         if ( link.getDestination() == diagramNodes.get(preNode)) {

@@ -14,6 +14,7 @@ import huce.Model.Observer;
 import huce.Model.Subject;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -280,14 +281,24 @@ public class MainApp extends javax.swing.JFrame implements Subject {
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel8.add(jLabel2, java.awt.BorderLayout.PAGE_START);
 
-        slider.add(jPanel8, JSplitPane.LEFT);
+        JPanel panel8Container = new JPanel();
+        panel8Container.setLayout(new CardLayout());
+
+        JSplitPane slider8 = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+        slider8.add(jPanel8, JSplitPane.TOP);
+        this.jResultText = new JTextArea("Nhóm 1");
+        this.jResultText.setBorder(new EmptyBorder(30, 30, 30, 30));
+        this.jResultText.setFont(new Font("Roboto", Font.PLAIN, 20));
+        slider8.add(this.jResultText, JSplitPane.BOTTOM);
+
+        slider.add(slider8, JSplitPane.LEFT);
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setFont(new java.awt.Font("Cascadia Mono", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(60, 64, 72));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Preview");
+        jLabel1.setText("Selected Graph");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel9.add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
@@ -419,6 +430,7 @@ public class MainApp extends javax.swing.JFrame implements Subject {
     public javax.swing.JTable jTestcaseTable;
     public GraphView graphView = null;
     public Pair<Node, Node> rootAndTo = new Pair<>(null, null);
+    public JTextArea jResultText = null;
     @Override
     public void update(Observer observer) {
         try (FileInputStream fi =
@@ -462,4 +474,24 @@ public class MainApp extends javax.swing.JFrame implements Subject {
         new OnGeneratePathController().controll(this);
     }
     // End of variables declaration
+    public void clickReload() {
+        this.graphView.clickReload();
+        String selectedRoot =
+                (String) this.jListRootNode.getSelectedItem();
+        var color =
+                GraphView.brushes.get( this.graphView.getRootColor() );
+        String selectedTo =
+                (String) this.jListToNode.getSelectedItem();
+
+        var colorTo =
+                GraphView.brushes.get( this.graphView.getToColor() );
+        this.graphView.highlightNode( selectedTo,
+                colorTo);
+
+        this.graphView.highlightNode( selectedRoot,
+                color);
+//        var colorBlock = GraphView.brushes.get( this.graphView.getBlockColor() );
+//        for ( var blocknode : this.jTableBlock.getModel().getValueAt(0) )
+        this.jResultText.setText("Nhóm 1");
+    }
 }

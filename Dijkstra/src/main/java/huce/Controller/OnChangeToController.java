@@ -18,13 +18,7 @@ public class OnChangeToController extends Controller {
                     myapp.graphView.highlightNode(myapp.rootAndTo.getSecond(), null);
                     myapp.setRootAndTo(null,
                             database.getNodes().get( newTo));
-                    myapp.graphView.clickReload();
-                    String selectedTo =
-                            (String) myapp.jListToNode.getSelectedItem();
-                    var color =
-                            GraphView.brushes.get( myapp.graphView.getToColor() );
-                    myapp.graphView.highlightNode( selectedTo,
-                            color);
+                    myapp.clickReload();
 
                 }
             }
