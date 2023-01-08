@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: huce.View.MainApp
+Class-Path: JDiagram.jar mssql-jdbc-11.2.1.jre18.jar
+

@@ -12,65 +12,66 @@ import huce.View.MainApp;
 
 import javax.swing.*;
 
-public class OnGeneratePathController extends Controller{
+public class OnGeneratePathController extends Controller {
 
-    @Override
-    public void controll(MainApp myapp) {
-        myapp.graphView.addStartEvent( (evt) -> {
-            String selectedStartNode = (String) myapp.jListRootNode.getSelectedItem();
-            String selectedEndNode = (String) myapp.jListToNode.getSelectedItem();
-            var nodes = super.database.getNodes();
-            Node start = nodes.get( selectedStartNode );
-            Node end = nodes.get( selectedEndNode );
-            Dijkstra.setAsRoot(start);
-            try {
-                Dijkstra.travel( start, end );
-                GraphView viewGraph = myapp.graphView;
-                myapp.clickReload();
-                var paths = Dijkstra.extractPaths(end);
-                Thread drawBlockNodes = new Thread(()-> {
-                    var blockedNodes = start.getBlocked();
-                    var blockColor = myapp.graphView.getBlockColor();
-                    for ( Node blockedNode : blockedNodes ) {
-                        viewGraph.highlightNode(blockedNode,
-                                GraphView.brushes.get(blockColor) );
-                    }
-                });
-                drawBlockNodes.start();
+  @Override
+  public void controll(MainApp myapp) {
+    myapp.graphView.addStartEvent((evt) -> {
+      String selectedStartNode = (String) myapp.jListRootNode.getSelectedItem();
+      String selectedEndNode = (String) myapp.jListToNode.getSelectedItem();
+      var nodes = super.database.getNodes();
+      Node start = nodes.get(selectedStartNode);
+      Node end = nodes.get(selectedEndNode);
+      Dijkstra.setAsRoot(start);
+      try {
+        Dijkstra.travel(start, end);
+        GraphView viewGraph = myapp.graphView;
+        myapp.clickReload();
+        this.database.setPaths(Dijkstra.extractPaths(end));
+        var paths = this.database.getPaths();
+        System.out.println("Path o DB" + paths);
+        Thread drawBlockNodes = new Thread(() -> {
+          var blockedNodes = start.getBlocked();
+          for (Node blockedNode : blockedNodes) {
+            viewGraph.highlightNode(blockedNode,
+                    GraphView.brushes.get(viewGraph.getBlockColor()));
+          }
+        });
+        drawBlockNodes.start();
 
 
-                // no more than 3 paths will be printed:
-                Thread drawPaths = new Thread( ()-> {
-                    Pen[] pens = new Pen[] {Pens.Green, Pens.Yellow,
-                            Pens.OrangeRed};
-                    Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
-                            Brushes.OrangeRed};
-                    int index = 0;
-                    myapp.jResultText.setText("Các cung đường có thể đi: ");
-                    for ( var path : paths ) {
-                        if (index == 3) {
-                            break;
-                        }
-                        viewGraph.drawPath(path,pens[index], brushes[index], 5 - index );
-                        index ++;
-                        myapp.jResultText.setText( myapp.jResultText.getText() +
-                                "\nGraph[" + index +"]: " + Dijkstra.getPathString(path) +
-                                "\n" );
-                    }
-                    myapp.jResultText.setText( myapp.jResultText.getText() + "\nTổng " +
-                            "chi " +
-                            "phí: " + end.getEstimate());
-                    Dijkstra.reset(nodes);
-                } );
+        // no more than 3 paths will be printed:
+        Thread drawPaths = new Thread(() -> {
+          Pen[] pens = new Pen[]{Pens.Green, Pens.Yellow,
+                  Pens.OrangeRed};
+          Brush[] brushes = new Brush[]{Brushes.Green, Brushes.Orange,
+                  Brushes.OrangeRed};
+          int index = 0;
+          myapp.jResultText.setText("Các cung đường có thể đi: ");
 
-                viewGraph.addReloadEvent(paths);
-                drawPaths.start();
-
-            } catch (PathNotFoundException err) {
-                JOptionPane.showMessageDialog(myapp, err.getMessage());
-                Dijkstra.reset(nodes);
-
+          for (var path : paths) {
+            if (index == 3) {
+              break;
             }
-        } );
-    }
+            viewGraph.drawPath(path, pens[index], brushes[index], 5 - index);
+            index++;
+            myapp.jResultText.setText(myapp.jResultText.getText() +
+                    "\nGraph[" + index + "]: " + Dijkstra.getPathString(path) +
+                    "\n");
+          }
+          myapp.jResultText.setText(myapp.jResultText.getText() + "\nTổng " +
+                  "chi " +
+                  "phí: " + end.getEstimate());
+          Dijkstra.reset(nodes);
+        });
+
+        drawPaths.start();
+
+      } catch (PathNotFoundException err) {
+        JOptionPane.showMessageDialog(myapp, err.getMessage());
+        Dijkstra.reset(nodes);
+
+      }
+    });
+  }
 }

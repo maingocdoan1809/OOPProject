@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="22b7f12b-87be-4e11-81d1-5a9667c03877" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "full.screen.before.presentation.mode": "true",
-    "last_opened_file_path": "D:/Docker/OOPProject",
+    "last_opened_file_path": "D:/From GITHUB/OOPNe/OOPProject",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -137,6 +135,7 @@
       <workItem from="1672618965346" duration="451000" />
       <workItem from="1672996445543" duration="4614000" />
       <workItem from="1673099346489" duration="654000" />
+      <workItem from="1673219152868" duration="143000" />
     </task>
     <servers />
   </component>
